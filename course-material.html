@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Material</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <!------------------------------ navigation ------------------------------------>
+     <nav>
+        <div class="nav-left" onclick="GoToCourseDuration()">
+          <img src="src/logo.png" alt="Logo" class="logo" /> </div>
+        <div class="nav-right" id="navLinks">
+          <img src="src/arrow-back.png" alt="back" class="BackIcon" onclick="hideMenu()"/>
+          <a href="homepage.html" class="nav-link">Home</a>
+          <a href="my-profile.html" class="nav-link">My Profile</a>
+          <a href="my-courses.html" class="nav-link">My Courses</a>
+          <a href="scholarship.html" class="nav-link">Scholarships</a>
+          
+          <a href="#" class="nav-link link-space">Setting</a>
+          <a href="login.html" class="nav-link ">Logout</a>
+        </div>
+        <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()"/>
+      </nav>
+
+
+
+    <div class="course-material">
+        <!----------------------- Course Material - Left ------------------------------>
+        <div class="course-material-left">
+          <div class="back">
+            <img src="src/back.png" alt="" onclick="GoToCourseDuration()">
+            <p>Back</p>
+          </div>
+
+          <div class="course-section">
+            <h2>Digital Marketing Fundamentals</h2>
+            <div class="course-section-info">
+                <img src="src/video.png" alt="">
+                <div class="name-duration">
+                    <h4>Introduction Video</h4>
+                    <p>6 min</p>
+                </div>
+                <span class="check">&#10004;</span>
+            </div>
+
+            <div class="course-section-info">
+                <img src="src/reader.png" alt="">
+                <div class="name-duration">
+                    <h4>Historical Perspectives, Case Studies</h4>
+                    <p>30 min</p>
+                </div>
+                <span class="check">&#10004;</span>
+            </div>
+
+
+            <div class="course-section-info">
+                <img src="src/quiz.png" alt="">
+                <div class="name-duration">
+                    <h4>Concept Reinforcement Quiz</h4>
+                    <p>25 min</p>
+                </div>
+                <span class="check">&#10004;</span>
+            </div>
+
+          </div>
+
+
+
+
+          <div class="course-section">
+            <h2>Key Terminology and Concepts</h2>
+            <div class="course-section-info">
+                <img src="src/video.png" alt="">
+                <div class="name-duration">
+                    <h4>Terminology Explained, Demonstrations</h4>
+                    <p>15 min</p>
+                </div>
+                <span class="check">&#10004;</span>
+            </div>
+
+            <div class="course-section-info">
+                <img src="src/reader.png" alt="">
+                <div class="name-duration">
+                    <h4>Terminology Deep Dive</h4>
+                    <p>35 min</p>
+                </div>
+                <span class="check">&#10004;</span>
+            </div>
+
+
+            <div class="course-section-info">
+                <img src="src/quiz.png" alt="">
+                <div class="name-duration">
+                    <h4>Terminology Practice Quizzes</h4>
+                    <p>20 min</p>
+                </div>
+                <span class="check">&#10004;</span>
+            </div>
+
+          </div>
+
+
+
+          <div class="course-section">
+            <h2>The Digital Marketing Landscape</h2>
+            <div class="course-section-info">
+                <img src="src/video.png" alt="">
+                <div class="name-duration">
+                    <h4>Landscape Overview, Real-world Examples</h4>
+                    <p>20 min</p>
+                </div>
+                <span class="check">&#10004;</span>
+            </div>
+
+            <div class="course-section-info">
+                <img src="src/reader.png" alt="">
+                <div class="name-duration">
+                    <h4>Landscape Insights</h4>
+                    <p>25 min</p>
+                </div>
+                <span class="check">&#10004;</span>
+            </div>
+
+
+            <div class="course-section-info">
+                <img src="src/quiz.png" alt="">
+                <div class="name-duration">
+                    <h4>Graded Assessment (Quiz)</h4>
+                    <p>55 min</p>
+                </div>
+                <span class="check">&#10004;</span>
+            </div>
+
+          </div>
+
+          <!------------ Certificate Button -------------->
+
+          <div class="get-certificate-btn">
+            <h3>Congratulation on completion of this courses</h3>
+            <button onclick="GoToCompletionCourse()">Get Your Certificate</button>
+          </div>
+
+        </div>
+
+
+        <!----------------------- Course Material - Left ------------------------------>
+        <div class="course-material-right">
+           <h4> Fundamentals of Digital Marketing <span>></span> Week 1: Introduction to Digital Marketing  <span>></span>  <span>Landscape Overview, Real-world Examples</span></h4>
+
+            <!------------ Video -------------->
+           <div class="video-container">
+            <video id="myVideo">
+                <source src="src/digital-marketing.mp4" type="video/mp4"> 
+            </video>
+    
+            <div class="controls">
+                <div class="left-controls">
+                    <input type="image" id="volumeIcon" src="src/volume.png" alt="Volume" onclick="toggleVolume()">
+                    <input type="image" id="muteIcon" src="src/mute.png" alt="Mute" onclick="toggleVolume()" style="display: none;">
+                    <!-- <input type="range" min="0" max="1" step="0.1" value="1" id="volumeRange" onchange="changeVolume()" style="display: none;"> -->
+                    <input type="image" src="src/subtitle.png" alt="Subtitles" onclick="toggleSubtitles()">
+                </div>
+    
+                <div class="center-controls">
+                    <img src="src/replay.png" alt="" onclick="seekBackward()">
+                    
+                    <img src="src/play.png" alt="" onclick="togglePlay()">
+                    <img src="src/pause.png" alt="" onclick="togglePlay()" class="pause" style="display: none; ">
+                    
+                    <img src="src/skip.png" alt="" onclick="seekForward()">
+                </div>
+                <div class="right-controls">
+                    <input type="image" src="src/quality.png" alt="Quality" onclick="toggleQuality()">
+                    <input type="image" src="src/expand.png" alt="Expand" onclick="toggleFullscreen()">
+                </div>
+            </div>
+        </div>
+
+            <!------------ About Section -------------->
+              
+    <div class="about-extra">
+        <div class="button-course-material">
+            <a href="javascript:void(0)" onclick="toggleContent(0)" class="active">Overview Video</a> 
+            <a href="javascript:void(0)" onclick="toggleContent(1)">Notes</a>
+            <a href="javascript:void(0)" onclick="toggleContent(2)">Download Resources</a>
+        </div>
+         
+        <div class="about-video active"> <!-- Initially set as active -->
+            <h3>About This Video</h3>
+
+            <div class="detail-explanation">
+                <h5>Terminology Explained: </h5>
+                <p>This video provides a comprehensive explanation of key digital marketing terminology. It covers terms such as SEO, SEM, PPC, CTR, and more. The video uses visual aids and real-life examples to make complex concepts easily understandable.</p>
+            </div>
+
+            <div class="detail-explanation">
+                <h5>Practical Demonstration</h5>
+                <p>In this video, you'll see practical demonstrations of key digital marketing concepts in action. For example, it might showcase how keyword research works in SEO or how to set up a Google Ads campaign. Practical demonstrations help you grasp the application of terminology in real-world scenarios.</p>
+            </div>
+        </div>
+
+
+        <div class="about-video" id="note" style="display: none;">
+            <h3>Notes Of This Video</h3>
+
+            <div class="detail-explanation">
+                <h5>Terminology Explained: </h5>
+                <p>This video provides a comprehensive explanation of key digital marketing terminology. It covers terms such as SEO, SEM, PPC, CTR, and more. The video uses visual aids and real-life examples to make complex concepts easily understandable.</p>
+            </div>
+
+            <div class="detail-explanation">
+                <h5>Practical Demonstration</h5>
+                <p>In this video, you'll see practical demonstrations of key digital marketing concepts in action. For example, it might showcase how keyword research works in SEO or how to set up a Google Ads campaign. Practical demonstrations help you grasp the application of terminology in real-world scenarios.</p>
+            </div>
+        </div>
+
+        <div class="about-video" id="download" style="display: none;">
+            <h3>Download Resource</h3>
+
+            <div class="detail-explanation">
+                <h5>Terminology Explained: </h5>
+                <p>This video provides a comprehensive explanation of key digital marketing terminology. It covers terms such as SEO, SEM, PPC, CTR, and more. The video uses visual aids and real-life examples to make complex concepts easily understandable.</p>
+            </div>
+
+            <div class="detail-explanation">
+                <h5>Practical Demonstration</h5>
+                <p>In this video, you'll see practical demonstrations of key digital marketing concepts in action. For example, it might showcase how keyword research works in SEO or how to set up a Google Ads campaign. Practical demonstrations help you grasp the application of terminology in real-world scenarios.</p>
+            </div>
+        </div>
+    </div>
+           
+            
+
+            <!------------ Instructors Details -------------->
+           <div class="instructor-detail">
+            <div class="instructor-basic">
+                 <div class="intructor-info">
+                    <img src="src/Benjamin.jpg" alt="" class="instructor-pic">
+                    <h3>Dr. Sarah Mitchell</h3>
+                 </div>
+                 
+                 <div class="intructor-info">
+                    <img src="src/star5.png" alt="" class="instructor-rating">
+                    <h4>5.0</h4>
+                 </div>
+              
+                  
+               
+            </div>
+             
+            <div class="instructor-basic">
+                <h3>Digital Marketing Specialist</h3>
+                <p>Top Instructor</p>
+            </div>
+
+            <p class="detail-description">
+                Sarah Mitchell is a seasoned Digital Marketing Specialist with over a decade of experience in the
+                field. She has worked with leading companies across various industries and has a deep understanding 
+                of digital marketing terminology. Sarah is known for her ability to simplify complex concepts and 
+                make them accessible to learners. In the video "Terminology Explained," she provides clear and 
+                insightful explanations of key digital marketing terms, ensuring that students grasp the terminology 
+                essential for success in the digital marketing landscape.</p>
+           </div>
+        </div>
+    </div>
+
+
+    <!------------------------------ Footer --------------------------------------->
+    <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="src/logo.png" alt="Your Company Logo">
+            <p>Virtual Scholar is a global online learning platform that offers anyone,
+               anywhere access to online courses</p>
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="#"><b>Virtual scholar</b></a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Teach on</a></li>
+              <li><a href="#">Roadmap</a></li>
+              <li><a href="#">Career</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Our Team</a></li>
+              
+            </ul>
+          
+            <ul>
+              <li><a href="#"><b>Community</b></a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Developer</a></li>
+              <li><a href="#">Testimonial</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Affiliate</a></li>
+              <li><a href="#">Our Scholarship</a></li>
+            </ul>
+          
+        
+            <ul>
+              <li><a href="#"><b>More</b></a></li>
+              <li><a href="#">FQA's</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Code of Conduct</a></li>
+            </ul>
+      </div>
+    </div>
+  
+          <hr>
+          <div class="footer-info">
+            <div class="social-media">
+              <a>
+                <img src="src/instagram.png" alt="">
+              </a>
+  
+          
+              <a>
+                <img src="src/facebook.png" alt="">
+              </a>
+  
+  
+              <a>
+                <img src="src/twitter.png" alt="">
+              </a>
+  
+              
+              <a>
+                <img src="src/linkedIn.png" alt="">
+              </a>
+  
+              <a>
+                <img src="src/youtube.png" alt="">
+              </a>
+            </div>
+            <p><b>©</b>2023 VirtualScholor, Inc. All rights reserved</p>
+          </div>
+        
+      </footer>
+
+    <script>
+        const video = document.getElementById('myVideo');
+        let isPlaying = false;
+        let isMuted = false;
+        let isVolumeRangeVisible = false;
+    
+        function togglePlay() {
+            if (!isPlaying) {
+                video.play();
+                isPlaying = true;
+                togglePlayPauseIcons();
+            } else {
+                video.pause();
+                isPlaying = false;
+                togglePlayPauseIcons();
+            }
+        }
+    
+        function togglePlayPauseIcons() {
+            const playIcon = document.querySelector('.center-controls img[src="src/play.png"]');
+            const pauseIcon = document.querySelector('.center-controls img[src="src/pause.png"]');
+            if (isPlaying) {
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'inline-block';
+            } else {
+                pauseIcon.style.display = 'none';
+                playIcon.style.display = 'inline-block';
+            }
+        }
+    
+        function seekBackward() {
+            video.currentTime -= 30;
+        }
+    
+        function seekForward() {
+            video.currentTime += 15;
+        }
+    
+      
+        function toggleVolume() {
+        // const volumeRange = document.getElementById('volumeRange');
+        // isVolumeRangeVisible = !isVolumeRangeVisible;
+        // volumeRange.style.display = isVolumeRangeVisible ? 'inline' : 'none';
+
+        const volumeIcon = document.getElementById('volumeIcon');
+        const muteIcon = document.getElementById('muteIcon');
+
+        if (isMuted) {
+            video.volume = 1.0;
+            isMuted = false;
+            toggleVolumeMuteIcons(volumeIcon, muteIcon);
+        } else {
+            video.volume = 0.0;
+            isMuted = true;
+            toggleVolumeMuteIcons(volumeIcon, muteIcon);
+        }
+    }
+
+    function toggleVolumeMuteIcons(volumeIcon, muteIcon) {
+        if (volumeIcon && muteIcon) {
+            if (isMuted) {
+                volumeIcon.style.display = 'none';
+                muteIcon.style.display = 'inline-block';
+              
+            } else {
+                volumeIcon.style.display = 'inline-block';
+                muteIcon.style.display = 'none';
+            }
+        }
+    }
+    
+        // function changeVolume() {
+        //     video.volume = document.getElementById('volumeRange').value;
+        // }
+    
+        function toggleQuality() {
+            console.log('Quality list toggled');
+        
+        }
+    
+        function toggleSubtitles() {
+            console.log('Subtitles list toggled');
+            
+        }
+    
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                video.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    </script>
+
+<script>
+     function toggleContent(index) {
+        const buttons = document.querySelectorAll('.button-course-material a');
+        const videoDetails = document.querySelectorAll('.about-video');
+
+        videoDetails.forEach((videoDetail) => {
+            videoDetail.style.display = 'none';
+        });
+
+        buttons.forEach((button) => {
+            button.classList.remove('active');
+        });
+
+        videoDetails[index].style.display = 'block';
+        buttons[index].classList.add('active');
+    }
+</script>
+
+
+<script src="script.js"></script>
+</body>
+</html>

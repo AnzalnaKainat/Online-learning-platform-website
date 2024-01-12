@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Info</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <!------------------------------ navigation ------------------------------------>
+      <nav>
+        <div class="nav-left">
+          <img src="src/logo.png" alt="Logo" class="logo" /> </div>
+        <div class="nav-right" id="navLinks">
+          <img src="src/arrow-back.png" alt="back" class="BackIcon" onclick="hideMenu()"/>
+          <a href="homepage.html" class="nav-link">Home</a>
+          <a href="my-profile.html" class="nav-link">My Profile</a>
+          <a href="my-courses.html" class="nav-link">My Courses</a>
+          <a href="scholarship.html" class="nav-link">Scholarships</a>
+          
+          <a href="#" class="nav-link link-space">Setting</a>
+          <a href="login.html" class="nav-link ">Logout</a>
+        </div>
+        <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()"/>
+      </nav>
+  
+
+<!------------------------------ Course Info ------------------------------------>
+
+    <div class="selectedCourses-info">
+      <div class="selectedCourses-left">
+        <h1>Digital Marketing Certification</h1>
+        <div class="review-star">
+          <img src="src/star5.png" alt>
+          <p>(3480 reviews)</p>
+          <h3>5.0</h3>
+        </div>
+        <p>Welcome to our comprehensive Digital Marketing Certification program
+          designed to equip you with the skills and knowledge needed to excel in
+          the dynamic world of digital marketing. This course is divided into
+          five distinct sub-courses, each spanning three weeks, providing an
+          in-depth exploration of essential digital marketing concepts and
+          strategies.</p>
+        <ul>
+          <li><b>Courses Lenght:</b>15 weeks</li>
+          <li><b>Courses Structure:</b>5 sub-courses, 3 weeks each</li>
+          <li><b>Lead Instructor</b></li>
+          <ul>
+            <li>Dr. Emily Rodriguez</li>
+            <li>Prof. James Carter </li>
+            <li>Dr. Maria Nguyen</li>
+            <li>Prof. Alex Smith</li>
+          </ul>
+
+          <li><b>Price:</b>$23.00</li>
+        </ul>
+
+        <div class="course-btn">
+          <button onclick class="button-without-border enroll-course-btn">Enrolled</button>
+          <button onclick="ToGoScholarship()" class="button-with-border">Avail
+            Scholarship</button>
+        </div>
+      </div>
+
+      <div class="selectedCourses-right">
+        <h2>Importance of Certification</h2>
+        <p>Earning your Digital Marketing Certification can be a significant
+          milestone in your professional journey. This certification
+          demonstrates your expertise and commitment to staying at the forefront
+          of digital marketing. It is a testament to your skills and knowledge
+          in an ever-evolving field, making you a valuable asset in today's job
+          market.</p>
+        <h3>How It Can Help In Professional Life</h3>
+        <ul>
+          <li>Gain a competitive edge in the job market.</li>
+          <li>Unlock new career opportunities in various industries.</li>
+          <li>Enhance your current job performance.</li>
+          <li>Prove your commitment to professional development.</li>
+          <li>Build a strong foundation for a successful career in digital
+            marketing</li>
+        </ul>
+      </div>
+    </div>
+ 
+    <!------------------------------ Course Syllabus ------------------------------------>
+    <div class="syllabus"></div>
+
+
+
+    
+    <!--------------------------- Reviews --------------------------------------->
+    <div class="explore-reviews">
+      <div class="heading-btn">
+        <h1>Explore Students Reviews</h1>
+        <button class="button-with-border view-more-review">View More</button>
+      </div>
+      
+      <div class="review-section">
+        <div class="reviews">
+          <h3>Life-changing Course!</h3>
+          <p>This Digital Marketing Certification course has exceeded my expectations. The content is well-structured, and the instructors are top-notch. I've gained valuable insights that I'm already applying in my job. Highly recommend!</p>
+          
+          <div class="name-star">
+            <h4>John S.</h4>
+            <img src="src/star5.png" alt="">
+          </div>
+        </div>
+  
+        <div class="verticalLine"></div>
+  
+         
+        <div class="reviews">
+          <h3>Challenging but Rewarding</h3>
+          <p>I've taken other digital marketing courses, but this one stands out. The weekly quizzes and assignments ensure you truly understand the material. It's challenging, but the sense of accomplishment is worth it.</p>
+          
+          <div class="name-star">
+            <h4>Sam M.</h4>
+            <img src="src/star5.png" alt="">
+          </div>
+        </div>
+  
+        <div class="horizontalLine"></div>
+  
+      
+          <div class="reviews">
+            <h3>Career-Boosting Certification</h3>
+            <p>The course provides a comprehensive overview of digital marketing. The real-world examples and practical exercises have been incredibly helpful. The certification is a game-changer for my career.</p>
+            
+            <div class="name-star">
+              <h4>Emily A.</h4>
+              <img src="src/star5.png" alt="">
+            </div>
+          </div>
+  
+          
+            <div class="reviews">
+              <h3>Impressive for Job Seekers</h3>
+              <p>I can't stress enough how important this certification has been for my job search. Employers are impressed with the course structure and the skills I've gained. It's worth every penny.</p>
+              
+              <div class="name-star">
+                <h4>David H.</h4>
+                <img src="src/star5.png" alt="">
+              </div>
+            </div>
+  
+      </div>
+
+      <div class="add-review">
+        <div class="review-title">
+          <input type="text" id="title" name="title" placeholder="Add Title">
+        </div>
+    
+        <div class="review-comment">
+          <input type="text" id="comment" name="comment" placeholder="Add Your Review">
+        </div>
+    
+        <div class="star-send">
+          <img src="src/review-star.png" alt="" class="star" >
+          <img src="src/send.png" alt="" class="send">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    
+      <!------------------------------ Footer --------------------------------------->
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="src/logo.png" alt="Your Company Logo">
+            <p>Virtual Scholar is a global online learning platform that offers anyone,
+               anywhere access to online courses</p>
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="#"><b>Virtual scholar</b></a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Teach on</a></li>
+              <li><a href="#">Roadmap</a></li>
+              <li><a href="#">Career</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Our Team</a></li>
+              
+            </ul>
+          
+            <ul>
+              <li><a href="#"><b>Community</b></a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Developer</a></li>
+              <li><a href="#">Testimonial</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Affiliate</a></li>
+              <li><a href="#">Our Scholarship</a></li>
+            </ul>
+          
+        
+            <ul>
+              <li><a href="#"><b>More</b></a></li>
+              <li><a href="#">FQA's</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Code of Conduct</a></li>
+            </ul>
+      </div>
+    </div>
+  
+          <hr>
+          <div class="footer-info">
+            <div class="social-media">
+              <a>
+                <img src="src/instagram.png" alt="">
+              </a>
+  
+          
+              <a>
+                <img src="src/facebook.png" alt="">
+              </a>
+  
+  
+              <a>
+                <img src="src/twitter.png" alt="">
+              </a>
+  
+              
+              <a>
+                <img src="src/linkedIn.png" alt="">
+              </a>
+  
+              <a>
+                <img src="src/youtube.png" alt="">
+              </a>
+            </div>
+            <p><b>©</b>2023 VirtualScholor, Inc. All rights reserved</p>
+          </div>
+        
+      </footer>
+
+
+  
+    <script>
+  
+  const syllabusData = [
+      {
+          title: "Fundamentals of Digital Marketing",
+          weeks: [
+              {
+                  week: "Week 1: Introduction to Digital Marketing",
+                  description: "In this foundational week, you'll embark on a journey through the history, terminology, and the critical role digital marketing plays in today's business landscape."
+              },
+              {
+                  week: "Week 2: Website and Content Marketing",
+                  description: "Explore website creation, content strategy, and SEO techniques to optimize your online presence and engage your target audience."
+              },
+              {
+                  week: "Week 3: Social Media Marketing",
+                  description: "Discover various social media platforms and learn to create and manage successful social media campaigns that engage your audience effectively."
+              }
+          ],
+          enrollButton: "course-duration.html"
+      },
+  
+      {
+          title: "Search Engine Optimization",
+          weeks: [
+              {
+                  week: "Week 1: SEO Fundamentals",
+                  description: "Delve into content optimization, link building, and technical SEO to improve your website's performance."
+              },
+              {
+                  week: "Week 2: On-Page and Off-Page SEO",
+                  description: "Delve into content optimization, link building, and technical SEO to improve your website's performance."
+              },
+              {
+                  week: "Week 3: SEO Analytics and Tools",
+                  description: "Explore SEO analytics tools, track key metrics, and evaluate the impact of your SEO strategies."
+              }
+          ],
+          enrollButton: "course-duration.html"
+      },
+  
+      {
+          title: "Content Marketing and Strategy",
+          weeks: [
+              {
+                  week: "Week 1: Content Strategy Development",
+                  description: "Develop a content strategy that aligns with your business goals, and understand audience targeting and content planning."
+              },
+              {
+                  week: "Week 2: Content Creation and Distribution",
+                  description: "Explore content creation methods, distribution channels, and the art of engaging your audience with compelling content."
+              },
+              {
+                  week: "Week 3: Content Marketing Analytics",
+                  description: "Learn to measure the impact of your content marketing efforts using analytics and reporting tools."
+              }
+          ],
+          enrollButton: "course-duration.html"
+      },
+  
+      {
+          title: "Content Marketing and Strategy",
+          weeks: [
+              {
+                  week: "Week 1: Content Strategy Development",
+                  description: "Develop a content strategy that aligns with your business goals, and understand audience targeting and content planning."
+              },
+              {
+                  week: "Week 2: Content Creation and Distribution",
+                  description: "Explore content creation methods, distribution channels, and the art of engaging your audience with compelling content."
+              },
+              {
+                  week: "Week 3: Content Marketing Analytics",
+                  description: "Learn to measure the impact of your content marketing efforts using analytics and reporting tools."
+              }
+          ],
+          enrollButton: "course-duration.html"
+      },
+  
+      {
+          title: "Content Marketing and Strategy",
+          weeks: [
+              {
+                  week: "Week 1: Content Strategy Development",
+                  description: "Develop a content strategy that aligns with your business goals, and understand audience targeting and content planning."
+              },
+              {
+                  week: "Week 2: Content Creation and Distribution",
+                  description: "Explore content creation methods, distribution channels, and the art of engaging your audience with compelling content."
+              },
+              {
+                  week: "Week 3: Content Marketing Analytics",
+                  description: "Learn to measure the impact of your content marketing efforts using analytics and reporting tools."
+              }
+          ],
+          enrollButton: "course-duration.html"
+      },
+  
+      {
+          title: "Content Marketing and Strategy",
+          weeks: [
+              {
+                  week: "Week 1: Content Strategy Development",
+                  description: "Develop a content strategy that aligns with your business goals, and understand audience targeting and content planning."
+              },
+              {
+                  week: "Week 2: Content Creation and Distribution",
+                  description: "Explore content creation methods, distribution channels, and the art of engaging your audience with compelling content."
+              },
+              {
+                  week: "Week 3: Content Marketing Analytics",
+                  description: "Learn to measure the impact of your content marketing efforts using analytics and reporting tools."
+              }
+          ],
+          enrollButton: "course-duration.html"
+      },
+  ];
+  
+  function createSyllabusElement(syllabus) {
+      const weekSyllabus = document.createElement('div');
+      weekSyllabus.classList.add('week-syllabus');
+  
+      const title = document.createElement('h2');
+      title.textContent = syllabus.title;
+      weekSyllabus.appendChild(title);
+  
+      syllabus.weeks.forEach((week) => {
+          const weekTitle = document.createElement('h3');
+          weekTitle.textContent = week.week;
+  
+          const description = document.createElement('p');
+          description.innerHTML = `<b>Description:</b> ${week.description}`;
+  
+          const hr = document.createElement('hr');
+  
+          weekSyllabus.appendChild(weekTitle);
+          weekSyllabus.appendChild(description);
+          weekSyllabus.appendChild(hr);
+      });
+  
+      const viewSyllabus = document.createElement('div');
+      viewSyllabus.classList.add('view-syllabus');
+  
+      const enrollButton = document.createElement('a');
+      enrollButton.classList.add('view-syllabus-btn');
+      enrollButton.textContent = "View Course";
+      enrollButton.href = syllabus.enrollButton; // Added href attribute
+      
+      viewSyllabus.appendChild(enrollButton);
+      weekSyllabus.appendChild(viewSyllabus);
+  
+      return weekSyllabus;
+  }
+  function displaySyllabus() {
+    const syllabusContainer = document.querySelector('.syllabus');
+  
+    syllabusData.forEach((syllabus, index) => {
+      const syllabusElement = createSyllabusElement(syllabus);
+      if (index < 3) {
+        syllabusElement.classList.add('show');
+      }
+      syllabusContainer.appendChild(syllabusElement);
+    });
+  
+    const showButton = document.createElement('div');
+    showButton.classList.add('view-all-syllabus');
+  
+    const showButtonInner = document.createElement('a');
+    showButtonInner.classList.add('view-all-syllabus-btn');
+    showButtonInner.textContent = 'View More';
+  
+    showButtonInner.addEventListener('click', function () {
+      const allWeekSyllabus = document.querySelectorAll('.week-syllabus');
+  
+      allWeekSyllabus.forEach((section, index) => {
+        if (index >= 3) {
+          if (section.classList.contains('show')) {
+            section.classList.remove('show');
+            showButtonInner.textContent = 'View More';
+          } else {
+            section.classList.add('show');
+            showButtonInner.textContent = 'Hide';
+          }
+        }
+      });
+    });
+  
+    showButton.appendChild(showButtonInner);
+    syllabusContainer.appendChild(showButton);
+  }
+  
+  displaySyllabus();
+  
+    </script>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>

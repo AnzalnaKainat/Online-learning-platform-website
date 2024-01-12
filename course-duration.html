@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Duration</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+ 
+     <!------------------------------ navigation ------------------------------------>
+     <nav>
+        <div class="nav-left" onclick="EnrolledCourseInfo()">
+          <img src="src/logo.png" alt="Logo" class="logo" /> </div>
+        <div class="nav-right" id="navLinks">
+          <img src="src/arrow-back.png" alt="back" class="BackIcon" onclick="hideMenu()"/>
+          <a href="homepage.html" class="nav-link">Home</a>
+          <a href="my-profile.html" class="nav-link">My Profile</a>
+          <a href="my-courses.html" class="nav-link">My Courses</a>
+          <a href="scholarship.html" class="nav-link">Scholarships</a>
+          
+          <a href="#" class="nav-link link-space">Setting</a>
+          <a href="login.html" class="nav-link ">Logout</a>
+        </div>
+        <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()"/>
+      </nav>
+
+
+      <!------------------------------ Course Duration ------------------------------------>
+    <div class="course-duration">
+        <h1>Fundamentals of Digital Marketing</h1>
+
+        <div class="cousrse-duration-row">
+             <!------------------------------ Course Duration - Left ------------------------------------>
+            <div class="course-duration-col-left">
+                <a href="javascript:void(0)" onclick="showWeekContent(1)" ><span>&#10004;</span> Week 1</a>
+                <a href="javascript:void(0)" onclick="showWeekContent(2)"><span>&#10004;</span> Week 2</a>
+                <a href="javascript:void(0)" onclick="showWeekContent(3)"><span>&#10004;</span> Week 3</a>
+                <a href="javascript:void(0)" class="distance">Discussion Forum</a>
+                <a href="javascript:void(0)">Reset Due Dates</a>
+                <a href="javascript:void(0)">Frequently Asked Questions</a>
+                <a href="javascript:void(0)">Course Info</a>
+            </div>
+
+             <!------------------------------ Course Duration - Left ------------------------------------>
+            <div class="course-duration-col-middle">
+               <div class="weeks-syllabus" id="week1">
+                <h2>Week 1: Introduction to Digital Marketing</h2>
+                <hr class="hr1">
+                <div class="expand">
+                    <div class="expand-header">
+                        <a href="course-material.html">Digital Marketing Fundamentals</a>
+                        <img src="src/expand_more.png" alt="" onclick="toggleSyllabus(this)" style="display: none;">
+                        <img src="src/expand_less.png" alt="" onclick="toggleSyllabus(this)" >
+                        <hr class="hr2">
+                    </div>
+                    <p>Introduction Video, Industry Expert Insights</p>
+                    <hr class="hr2">
+                    <p>Historical Perspectives, Case Studies</p>
+                    <hr class="hr2">
+                    <p>Concept Reinforcement Quiz</p>
+                    <hr>
+                </div>
+                <div class="expand">
+                    <div class="expand-header">
+                        <a href="course-material.html">Key Terminology and Concepts</a>
+                        <img src="src/expand_more.png" alt="" onclick="toggleSyllabus(this)" style="display: none;">
+                        <img src="src/expand_less.png" alt="" onclick="toggleSyllabus(this)" >
+                        <hr class="hr2">
+                    </div>
+                   
+                    <p>Terminology Explained, Practical Demonstrations</p>
+                    <hr class="hr2">
+                    <p>Terminology Deep Dive, Interactive E-books</p>
+                    <hr class="hr2">
+                    <p>Terminology Practice Quizzes</p>
+                    <hr>
+                </div>
+                <div class="expand">
+                    <div class="expand-header">
+                        <a href="course-material.html">The Digital Marketing Landscape </a>
+                        <img src="src/expand_more.png" alt="" onclick="toggleSyllabus(this)" style="display: none;">
+                        <img src="src/expand_less.png" alt="" onclick="toggleSyllabus(this)" >
+                        <hr class="hr2">
+                    </div>
+                  
+                    <p>Landscape Overview, Real-world Examples</p>
+                    <hr class="hr2">
+                    <p>Landscape Insights, Interactive Multimedia E-books</p>
+                    <hr class="hr2">
+                    <p>Graded Assessment (Quiz)</p>
+                    <hr>
+                </div>
+               </div>
+
+               <!---------------- week2 -------------->
+               <div class="weeks-syllabus" id="week2" style="display: none;">
+                <h2>Week 2: Introduction to Digital Marketing</h2>
+                <hr class="hr1">
+                <div class="expand">
+                    <div class="expand-header">
+                        <a href="course-material.html">Digital Marketing Fundamentals</a>
+                        <img src="src/expand_more.png" alt="" onclick="toggleSyllabus(this)" style="display: none;">
+                        <img src="src/expand_less.png" alt="" onclick="toggleSyllabus(this)" >
+                        <hr class="hr2">
+                    </div>
+                    <p>Introduction Video, Industry Expert Insights</p>
+                    <hr class="hr2">
+                    <p>Historical Perspectives, Case Studies</p>
+                    <hr class="hr2">
+                    <p>Concept Reinforcement Quiz</p>
+                    <hr class="hr2">
+                </div>
+                <div class="expand">
+                    <div class="expand-header">
+                        <a href="course-material.html">Key Terminology and Concepts</a>
+                        <img src="src/expand_more.png" alt="" onclick="toggleSyllabus(this)" style="display: none;">
+                        <img src="src/expand_less.png" alt="" onclick="toggleSyllabus(this)" >
+                        <hr class="hr2">
+                    </div>
+                   
+                    <p>Terminology Explained, Practical Demonstrations</p>
+                    <hr class="hr2">
+                    <p>Terminology Deep Dive, Interactive E-books</p>
+                    <hr class="hr2">
+                    <p>Terminology Practice Quizzes</p>
+                    <hr class="hr2">
+                </div>
+                <div class="expand">
+                    <div class="expand-header">
+                        <a href="course-material.html">The Digital Marketing Landscape </a>
+                        <img src="src/expand_more.png" alt="" onclick="toggleSyllabus(this)" style="display: none;">
+                        <img src="src/expand_less.png" alt="" onclick="toggleSyllabus(this)" >
+                        <hr class="hr2">
+                    </div>
+                    
+                    <p>Landscape Overview, Real-world Examples</p>
+                    <hr class="hr2">
+                    <p>Landscape Insights, Interactive Multimedia E-books</p>
+                    <hr class="hr2">
+                    <p>Graded Assessment (Quiz)</p>
+                    <hr class="hr2">
+                </div>
+            </div>
+
+             <!---------------- week3 -------------->
+            <div class="weeks-syllabus" id="week3" style="display: none;">
+                <h2>Week 3: Introduction to Digital Marketing</h2>
+                <hr class="hr1">
+                <div class="expand">
+                    <div class="expand-header">
+                        <a href="course-material.html">Digital Marketing Fundamentals</a>
+                        <img src="src/expand_more.png" alt="" onclick="toggleSyllabus(this)" style="display: none;">
+                        <img src="src/expand_less.png" alt="" onclick="toggleSyllabus(this)" >
+                        <hr class="hr2">
+                    </div>
+                  
+                    <p>Introduction Video, Industry Expert Insights</p>
+                    <hr class="hr2">
+                    <p>Historical Perspectives, Case Studies</p>
+                    <hr class="hr2">
+                    <p>Concept Reinforcement Quiz</p>
+                    <hr class="hr2">
+                </div>
+                <div class="expand">
+                    <div class="expand-header">
+                        <a href="course-material.html">Key Terminology and Concepts</a>
+                        <img src="src/expand_more.png" alt="" onclick="toggleSyllabus(this)" style="display: none;">
+                        <img src="src/expand_less.png" alt="" onclick="toggleSyllabus(this)" >
+                        <hr class="hr2">
+                    </div>
+                    
+                    <p>Terminology Explained, Practical Demonstrations</p>
+                    <hr class="hr2">
+                    <p>Terminology Deep Dive, Interactive E-books</p>
+                    <hr class="hr2">
+                    <p>Terminology Practice Quizzes</p>
+                    <hr class="hr2">
+                </div>
+                <div class="expand">
+                    <div class="expand-header">
+                        <a href="course-material.html">The Digital Marketing Landscape </a>
+                        <img src="src/expand_more.png" alt="" onclick="toggleSyllabus(this)" style="display: none;">
+                        <img src="src/expand_less.png" alt="" onclick="toggleSyllabus(this)" >
+                        <hr class="hr2">
+                    </div>
+                    
+                    <p>Landscape Overview, Real-world Examples</p>
+                    <hr class="hr2">
+                    <p>Landscape Insights, Interactive Multimedia E-books</p>
+                    <hr class="hr2">
+                    <p>Graded Assessment (Quiz)</p>
+                    <hr class="hr2">
+                </div>
+                </div>
+                
+            </div>
+                
+
+     <!------------------------------ Course Duration - Left ------------------------------------>
+            <div class="course-duration-col-right">
+                <div class="extra">
+                    <h3>Skill</h3>
+                    <div class="extra-learning">
+                        <img src="src/skills.png" alt="">
+                        <p>Beginners Level</p>
+                    </div>
+                </div>
+
+                <div class="extra">
+                    <h3>Weeks</h3>
+                    <div class="extra-learning">
+                        <img src="src/number.png" alt="">
+                        <p>3 Weeks</p>
+                    </div>
+                </div>
+
+                <div class="extra">
+                    <h3>Videos</h3>
+                    <div class="extra-learning">
+                        <img src="src/video-1.png" alt="">
+                        <p>23hr 35min</p>
+                    </div>
+                </div>
+
+                <div class="extra">
+                    <h3>Reading</h3>
+                    <div class="extra-learning">
+                        <img src="src/reading.png" alt="">
+                        <p>30 hr 15 mins</p>
+                    </div>
+                </div>
+
+                <div class="extra">
+                    <h3>Graded Assessment</h3>
+                    <div class="extra-learning">
+                        <img src="src/assesment.png" alt="">
+                        <p>6 graded assessment</p>
+                    </div>
+                </div>
+
+                <div class="extra">
+                    <h3>Language</h3>
+                    <div class="extra-learning">
+                        <img src="src/language.png" alt="">
+                        <p>English Language</p>
+                    </div>
+                </div>
+
+                <div class="extra">
+                    <h3>Certificate</h3>
+                    <div class="extra-learning">
+                        <img src="src/certificate-1.png" alt="">
+                        <p>Get certificate after each course</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+      <!------------------------------ Footer --------------------------------------->
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="src/logo.png" alt="Your Company Logo">
+            <p>Virtual Scholar is a global online learning platform that offers anyone,
+               anywhere access to online courses</p>
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="#"><b>Virtual scholar</b></a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Teach on</a></li>
+              <li><a href="#">Roadmap</a></li>
+              <li><a href="#">Career</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Our Team</a></li>
+              
+            </ul>
+          
+            <ul>
+              <li><a href="#"><b>Community</b></a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Developer</a></li>
+              <li><a href="#">Testimonial</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Affiliate</a></li>
+              <li><a href="#">Our Scholarship</a></li>
+            </ul>
+          
+        
+            <ul>
+              <li><a href="#"><b>More</b></a></li>
+              <li><a href="#">FQA's</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Code of Conduct</a></li>
+            </ul>
+      </div>
+    </div>
+  
+          <hr>
+          <div class="footer-info">
+            <div class="social-media">
+              <a>
+                <img src="src/instagram.png" alt="">
+              </a>
+  
+          
+              <a>
+                <img src="src/facebook.png" alt="">
+              </a>
+  
+  
+              <a>
+                <img src="src/twitter.png" alt="">
+              </a>
+  
+              
+              <a>
+                <img src="src/linkedIn.png" alt="">
+              </a>
+  
+              <a>
+                <img src="src/youtube.png" alt="">
+              </a>
+            </div>
+            <p><b>©</b>2023 VirtualScholor, Inc. All rights reserved</p>
+          </div>
+        
+      </footer>
+
+
+    <script>
+        function showWeekContent(weekNumber) {
+            // Hide all weeks content
+            const allWeeks = document.querySelectorAll('.weeks-syllabus');
+            allWeeks.forEach((week) => {
+                week.style.display = 'none';
+            });
+
+            // Show the clicked week content
+            const selectedWeek = document.getElementById(`week${weekNumber}`);
+            selectedWeek.style.display = 'block';
+
+            // Remove dark green border from all week links
+            const allLinks = document.querySelectorAll('.course-duration-col-left a');
+            allLinks.forEach((link) => {
+                link.style.borderBottom = 'none';
+            });
+
+            // Highlight the current week link with dark green border
+            const currentLink = document.querySelector(`.course-duration-col-left a:nth-child(${weekNumber})`);
+            currentLink.style.borderBottom = '3px solid #397e81';
+            currentLink.style.width = '100px';
+            currentLink.style.paddingBottom = '10px';
+            currentLink.style.margin = '0px auto 28px auto';
+        }
+
+        function toggleSyllabus(element) {
+            const expandSection = element.closest('.expand');
+            const expandMore = expandSection.querySelector('img[src="src/expand_more.png"]');
+            const expandLess = expandSection.querySelector('img[src="src/expand_less.png"]');
+            const items = expandSection.querySelectorAll('p, hr');
+
+            if (expandMore.style.display === 'none') {
+                expandMore.style.display = 'inline-block';
+                expandLess.style.display = 'none';
+                items.forEach(item => {
+                    item.style.display = 'none';
+                });
+            } else {
+                expandMore.style.display = 'none';
+                expandLess.style.display = 'inline-block';
+                items.forEach(item => {
+                    item.style.display = 'block';
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Courses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!------------------------------ navigation ------------------------------------>
+    <nav>
+        <div class="nav-left">
+          <img src="src/logo.png" alt="Logo" class="logo" /> </div>
+        <div class="nav-right" id="navLinks">
+          <img src="src/arrow-back.png" alt="back" class="BackIcon" onclick="hideMenu()"/>
+          <a href="explore-courses.html" class="nav-link">Explore Courses</a>
+          <a href="explore-scholarship.html" class="nav-link">Explore Scholarship</a>
+          <a href="#about" class="nav-link">About Us</a>
+          <a href="#contact" class="nav-link">Contact Us</a>
+          
+          <a href="signup.html" class="nav-link link-button" onclick="GoToSignUpPage()">Sign Up</a>
+          <a href="login.html" class="nav-link link-button-border" onclick="GoToLoginPage()">Login</a>
+        </div>
+        <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()"/>
+      </nav>
+
+
+      <!------------------------------ Search & Filter Buttons--------------------------------------------->
+      <div class="search-bar">
+        <div class="search-icon">
+          <img src="src/search.png" alt="">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search"
+            oninput="filterScholarships()"
+          />
+        </div>
+        <div class="filter-icon" >
+          <img src="src/filter.png" alt="" id="filterIcon">
+          <p>Filter</p>
+          <select id="filterDropdown" onchange="filterCoursesByFilterOption()">
+            <option value="" selected disabled>Filter by Rating</option>
+            <option value="4.0">4.0+</option>
+            <option value="4.5">4.5+</option>
+            <option value="5.0">5.0</option>
+          </select>
+        </div>
+      </div>
+
+   
+      <script>
+        // Your existing JavaScript code
+      
+        function filterCoursesByKeyword(keyword) {
+          const allSections = document.querySelectorAll('.professional-certificate, .guided-projects, .free-container, .Completedegree');
+      
+          allSections.forEach(section => {
+            const courses = section.querySelectorAll('.professional-container, .project-container, .sameContainer, .grade-container');
+      
+            courses.forEach(course => {
+              const courseName = course.querySelector('h2, h3').textContent.toLowerCase();
+              const description = course.querySelector('p, .free-description, .grade-description').textContent.toLowerCase();
+      
+              if (courseName.includes(keyword) || description.includes(keyword)) {
+                course.style.display = 'block';
+              } else {
+                course.style.display = 'none';
+              }
+            });
+          });
+        }
+      
+        function clearSearchResults() {
+          const allCourses = document.querySelectorAll('.professional-container, .project-container, .sameContainer, .grade-container');
+      
+          allCourses.forEach(course => {
+            course.style.display = 'block';
+          });
+        }
+      
+        function openFilter() {
+    const filterDropdown = document.getElementById('filterDropdown');
+    filterDropdown.style.display = (filterDropdown.style.display === 'none' || filterDropdown.style.display === '') ? 'block' : 'none';
+  }
+
+        function filterScholarships() {
+          const searchInput = document.getElementById('searchInput');
+          const keyword = searchInput.value.toLowerCase();
+      
+          if (keyword.trim() === '') {
+            clearSearchResults();
+          } else {
+            filterCoursesByKeyword(keyword);
+          }
+        }
+      
+        function filterCoursesByFilterOption() {
+          const filterDropdown = document.getElementById('filterDropdown');
+          const selectedOption = filterDropdown.value;
+      
+          const allCourses = document.querySelectorAll('.professional-container, .project-container, .sameContainer, .grade-container');
+      
+          allCourses.forEach(course => {
+            const ratingElement = course.querySelector('.number-rating, .free-number-rating');
+            const rating = parseFloat(ratingElement ? ratingElement.textContent : 0);
+      
+            if (selectedOption === '' || rating >= parseFloat(selectedOption)) {
+              course.style.display = 'block';
+            } else {
+              course.style.display = 'none';
+            }
+          });
+        }
+      
+        // Attach event listeners
+        document.getElementById('filterIcon').addEventListener('click', openFilter);
+        document.getElementById('searchInput').addEventListener('input', filterScholarships);
+        document.getElementById('filterDropdown').addEventListener('change', filterCoursesByFilterOption);
+      </script>
+
+       <!------------------------------ Professional Certificate ------------------------------------>
+<section class="professional-certificate">
+    <h1>Discover Courses</h1>
+    <h2>Professional Certificate</h2>
+    <div class="professional-slider" id="professionalSlider"></div>
+    <div class="arrowIcon prevArrow">&#9665;</div>
+    <div class="arrowIcon nextArrow">&#9655;</div>
+</section>
+
+<script>
+    const coursesData = [
+        {
+            image: 'src/digital-marketing.jpg',
+            name: 'Digital Marketing Certification',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'Step into the dynamic world of digital marketing with our comprehensive certification program. Explore the fundamental principles and advanced strategies of online marketing, including SEO, social media marketing, email marketing, and PPC advertising. This course equips you with the knowledge and practical skills needed to create and execute successful digital marketing campaigns. ',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' 
+        },
+        {
+            image: 'src/data-science.jpg',
+            name: 'Data Science Fundamentals',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'Dive deep into the world of data science with our rigorous fundamentals course. Gain a solid foundation in data analysis, statistics, and data visualization. Learn to collect, clean, and analyze data to extract valuable insights. With practical exercises and real-world projects, this program ensures you have the skills to make data-driven decisions and excel in the field of data science.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' // Add star image URL
+        },
+        {
+            image: 'src/cyber-security.jpg',
+            name: 'Certified Cybersecurity Specialist',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'Embark on a journey into the world of cybersecurity with our specialized certification program. Dive into cybersecurity fundamentals, network security, ethical hacking, and incident response. This hands-on course equips you with the knowledge and skills to identify and mitigate security threats. Master the latest cybersecurity tools and techniques to protect organizations from cyberattacks .',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' // Add star image URL
+        },
+        ,
+        {
+            image: 'src/graphic-design.jpg',
+            name: 'Graphic Design Masterclass',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'Unleash your creativity and develop your design skills in our extensive graphic design masterclass. Learn to use Adobe Creative Suite effectively and understand design principles. Explore the art of visual storytelling through print and digital media. This course will empower you to create stunning visuals, logos, posters, and web graphics, making you a proficient graphic designer.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' // Add star image URL
+        },
+        {
+            image: 'src/content-writing.jpg',
+            name: 'Content Writing and SEO',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'Combine the art of persuasive writing with the science of SEO in our content writing and SEO course. Craft engaging and informative content while optimizing it for search engines. Delve into keyword research, on-page and off-page SEO, and content promotion strategies. By the end of the program, you will be equipped to drive organic traffic, improve website rankings, and engagement.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' // Add star image URL
+        },
+        ,
+        {
+            image: 'src/cyber-security.jpg',
+            name: ' Human Resources ',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'Become a certified HR professional through our in-depth PHR certification program. Dive into the world of human resource management, employment laws, and best practices in personnel management and employee relations. Explore recruitment, training, performance management, and more. Develop the skills to navigate complex HR issues and excel in the dynamic world of human resources.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' // Add star image URL
+        },
+        {
+            image: 'src/graphic-design.jpg',
+            name: 'Certified Cloud Architect',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'Embrace the cloud revolution with our Certified Cloud Architect program. Explore cloud computing principles, architecture design, and management. Learn to design and implement scalable, secure, and cost-effective cloud solutions. Gain hands-on experience with leading cloud platforms like AWS, Azure, and Google Cloud. This program prepares you for a rewarding career in cloud services.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' // Add star image URL
+        },
+    ];
+
+    const professionalSlider = document.getElementById('professionalSlider');
+    let currentSlide = 0;
+
+    coursesData.forEach(course => {
+        const card = createCourseCard(course);
+        professionalSlider.appendChild(card);
+    });
+
+    function createCourseCard(course) {
+        const card = document.createElement('div');
+        card.classList.add('professional-container');
+
+        card.innerHTML = `
+            <div class="course-img">
+                <img src="${course.image}" alt="${course.courseName}">
+            </div>
+            
+            <div class="certificate-info">
+                <div class="course-name">
+                    <h2>${course.name}</h2>
+                    <h4>${course.rating}</h4>
+                </div>
+
+                <div class="reviews-rating">
+                    <img src="${course.starImage}" alt="">
+                    <p>(${course.reviews} reviews)</p>
+                </div>
+
+                <p>${course.description}</p>
+                
+                <div class="price-and-button">
+                    <span>PRICE: ${course.price}</span>
+                    <a href="${course.enrollLink}" class="enroll-now">Enroll Now</a>
+                </div>
+            </div>
+        `;
+
+        return card;
+    }
+
+    function initializeProfessionalSlider() {
+        const slider = document.getElementById('professionalSlider');
+        const cards = document.querySelectorAll('.professional-container');
+        const cardCount = cards.length;
+        let cardWidth = cards[0].offsetWidth + 25; /* Adjusted card width to include margin */
+
+        // Appending additional cards for infinite loop
+        for (let i = 0; i < cardCount; i++) {
+            const clone = cards[i].cloneNode(true);
+            slider.appendChild(clone);
+        }
+
+        function navigateProfessionalSlider(direction) {
+            currentSlide += direction;
+            const maxSlide = cardCount * 2 - 1; // Double the cards for looping
+            if (currentSlide < 0) {
+                currentSlide = maxSlide;
+            } else if (currentSlide > maxSlide) {
+                currentSlide = 0;
+            }
+
+            const newPosition = -currentSlide * cardWidth;
+            slider.style.transition = 'transform 0.5s ease-in-out';
+            slider.style.transform = `translateX(${newPosition}px)`;
+        }
+
+        document.querySelector('.prevArrow').addEventListener('click', () => navigateProfessionalSlider(-1));
+        document.querySelector('.nextArrow').addEventListener('click', () => navigateProfessionalSlider(1));
+    }
+
+    initializeProfessionalSlider();
+</script>
+    
+    <!------------------------------ Guided Projects ---------------------------------------->
+
+    <section class="guided-projects">
+        <h2>Guided Projects</h2>
+        <div class="projects-container" id="projectContainer"></div>
+        <div class="proj-btn">
+            <button class="button-with-border">View More</button>
+        </div>
+        
+    </section>
+        <script>
+            const guidedProjectData = [
+                {
+                    imgSrc: "src/web dev.png",
+                    projectName: "Website Design and Development",
+                    rating: "5.0",
+                    imgSrcRating: "src/star5.png",
+                    reviews: 6745,
+                    description: "Create a professional website from scratch. This project covers everything from designing the user interface and choosing color schemes to coding the front-end and back-end. You'll learn HTML, CSS, JavaScript, and web development frameworks. By the end, you'll have a fully functional website.",
+                    price: 23,
+                    enrollLink: "#"
+                },
+                {
+                    imgSrc: "src/mob app.jpg",
+                    projectName: "Mobile App Development",
+                    rating: "5.0",
+                    imgSrcRating: "src/star5.png",
+                    reviews: 6745,
+                    description: "Build a mobile app for iOS or Android. This guided project takes you through the entire app development process, from ideation and design to coding and testing. You'll work with programming languages like Swift (for iOS) or Java/Kotlin (for Android) and development tools to create a app.",
+                    price: 23,
+                    enrollLink: "#"
+                },
+                {
+                    imgSrc: "src/data-analysis.jpg",
+                    projectName: "Data Analysis and Visualization",
+                    rating: "5.0",
+                    imgSrcRating: "src/star5.png",
+                    reviews: 6745,
+                    description: "Analyze a real-world dataset and create informative data visualizations. You'll learn how to clean and manipulate data using Python and libraries like Pandas and Numpy. Then, use tools like Matplotlib and Seaborn to create graphs and charts to convey insights from the data.",
+                    price: 23,
+                    enrollLink: "#"
+                },
+                {
+                    imgSrc: "src/social-media-marketing.png",
+                    projectName: "Social Media Marketing Campaign",
+                    rating: "5.0",
+                    imgSrcRating: "src/star5.png",
+                    reviews: 6745,
+                    description: "Plan and execute a social media marketing campaign for a fictional business. You'll create a content calendar, design engaging posts, and track performance metrics using social media analytics tools. This project teaches the essentials of social media marketing strategy and execution.",
+                    price: 23,
+                    enrollLink: "#"
+                },
+                {
+                    imgSrc: "src/e-commerce-web.jpg",
+                    projectName: "E-commerce Website",
+                    rating: "5.0",
+                    imgSrcRating: "src/star5.png",
+                    reviews: 6745,
+                    description: "Develop a complete e-commerce website, including product listings, shopping cart functionality, and payment processing. You'll work with web development technologies and payment gateways to create a functional online store. This project is perfect for those interested in web development.",
+                    price: 23,
+                    enrollLink: "#"
+                },
+                ,
+                {
+                    imgSrc: "src/machine-learning-model.jpg",
+                    projectName: "Machine Learning Predictive Model",
+                    rating: "5.0",
+                    imgSrcRating: "src/star5.png",
+                    reviews: 6745,
+                    description: "Build a machine learning model to predict a real-world outcome, such as housing prices, stock market trends, or customer churn. You'll explore data preprocessing, model selection, and evaluation. Python and popular machine learning libraries like scikit-learn are used to develop the model.",
+                    price: 23,
+                    enrollLink: "#"
+                },
+            ];
+
+            const projectContainer = document.getElementById('projectContainer');
+
+            guidedProjectData.forEach(project => {
+                const card = document.createElement('div');
+                card.classList.add('project-container');
+
+                card.innerHTML = `
+                    <div class="project-img">
+                        <img src="${project.imgSrc}" alt="${project.projectName}">
+                    </div>
+                    
+                    <div class="project-info">
+                        <div class="project-name">
+                            <h3>${project.projectName}</h3>
+                        </div>
+
+                        <div class="project-reviews-rating">
+                            <img src="${project.imgSrcRating}" alt="${project.projectName}">
+                            <p>(${project.reviews} reviews)</p>
+                            <h4 class="number-rating">${project.rating}</h4>
+                        </div>
+
+                        <p>${project.description}</p>
+                        
+                        <div class="price-and-button">
+                            <span>PRICE: ${project.price}$</span>
+                            <a href="${project.enrollLink}" class="enroll-now">Enroll Now</a>
+                        </div>
+                    </div>
+                `;
+
+                projectContainer.appendChild(card);
+            });
+        </script>
+
+
+   <!------------------------------ Free Projects & Free Courses ---------------------------------------->
+   <section class="free">
+    <h2>Free Courses & Projects</h2>
+    <div class="free-container">
+        <!-- Free Courses Section -->
+        <div class="container-freeCoursesProjects">
+            <h3>Free Courses</h3>
+            <div class="sameContainer"  id="freeCourses"></div>  
+        </div>
+       
+
+        <div class="freeVerticalLine"></div>
+
+        <!-- Free Projects Section -->
+        <div class="container-freeCoursesProjects">
+            <h3>Free Projects</h3>
+            <div class="sameContainer"  id="freeProjects"></div>    
+        </div>
+    </div>
+    <div class="proj-btn">
+        <button class="button-with-border">View More</button>
+    </div>
+</section>
+
+<script>
+    const freeCourseData = [
+        {
+            imgSrc: "src/gardening.jpg",
+            projectName: "Introduction to Sustainable Gardening",
+            rating: "4.8",
+            imgSrcRating: "src/star5.png",
+            reviews: 5321,
+            description: "Explore the principles of sustainable gardening, including organic farming practices, companion planting, and eco-friendly pest control methods.",
+            enrollLink: "#"
+        },
+        {
+            imgSrc: "src/Creative Writing.jpg",
+            projectName: "Creative Writing Workshop",
+            rating: "4.5",
+            imgSrcRating: "src/star5.png",
+            reviews: 4321,
+            description: "Emmerse yourself in the world of creative writing. Learn the art of storytelling, character development, and crafting engaging narratives.",
+            enrollLink: "#"
+        },
+        {
+            imgSrc: "src/digital art.jpg",
+            projectName: "Introduction to Digital Art & Illustration",
+            rating: "4.8",
+            imgSrcRating: "src/star5.png",
+            reviews: 5321,
+            description: "Dive into the world of digital art and illustration. Learn the basics of digital art tools, techniques, and creative expression.",
+            enrollLink: "#"
+        },
+        {
+            imgSrc: "src/enviromental science.jpg",
+            projectName: "Environmental Science Fundamentals",
+            rating: "4.5",
+            imgSrcRating: "src/star5.png",
+            reviews: 4321,
+            description: "Gain a foundational understanding of environmental science, covering topics like ecosystems, climate change, and conservation efforts.",
+            enrollLink: "#"
+        },
+        // Add more projects as needed
+    ];
+
+    // Free Courses Section
+    const freeCourses = document.getElementById('freeCourses');
+
+    freeCourseData.forEach(freeProject => {
+        const card = document.createElement('div');
+        card.classList.add('sameContainer');
+
+        card.innerHTML = `
+            <div class="free-img">
+                <img src="${freeProject.imgSrc}" alt="${freeProject.projectName}">
+            </div>
+            
+            <div class="free-info">
+                <div class="free-name">
+                    <h3>${freeProject.projectName}</h3>
+                </div>
+
+                <div class="free-reviews-rating">
+                    <img src="${freeProject.imgSrcRating}" alt="${freeProject.projectName}">
+                    <p>(${freeProject.reviews} reviews)</p>
+                    <h4 class="free-number-rating">${freeProject.rating}</h4>
+                </div>
+
+                <p class="free-description">${freeProject.description}</p>
+                
+                <div class="free-button">
+                    <a href="${freeProject.enrollLink}" class="enroll-now">Enroll Now</a>
+                </div>
+            </div>
+        `;
+
+        freeCourses.appendChild(card);
+    });
+
+    const freeProjectData = [
+        {
+            imgSrc: "src/personal budget tracker.jpg",
+            projectName: "Personal Budget Tracker",
+            rating: "4.8",
+            imgSrcRating: "src/star5.png",
+            reviews: 5321,
+            description: "Create a personal budget tracker application. The project will guide you through building a web or mobile app to input income and expenses, set budget goals, and generate financial reports.",
+            enrollLink: "#"
+        },
+        {
+            imgSrc: "src/to do list app.png",
+            projectName: "To-Do List App with Reminders",
+            rating: "4.5",
+            imgSrcRating: "src/star5.png",
+            reviews: 4321,
+            description: "Build a to-do list application that allows users to set reminders for their tasks. The guided project will walk you through the development of a user-friendly interface and integration of reminder notifications.",
+            enrollLink: "#"
+        },
+        {
+            imgSrc: "src/weather forecast app.jpg",
+            projectName: "Weather Forecast App",
+            rating: "4.8",
+            imgSrcRating: "src/star5.png", 
+            reviews: 5321,
+            description: "Develop a weather forecast app that provides real-time weather information for a user's location. The project will guide you through integrating weather APIs, displaying weather data, and creating a user-friendly interface.",
+            enrollLink: "#"
+        },
+        {
+            imgSrc: "src/recipe finder app.jpg",
+            projectName: "Recipe Finder and Meal Planner",
+            rating: "4.5",
+            imgSrcRating: "src/star5.png",
+            reviews: 4321,
+            description: "Create a recipe finder and meal planner application. This guided project will teach you how to use APIs to search for recipes, and generate weekly meal plans based on user preferences and dietary restrictions.",
+            enrollLink: "#"
+        },
+        // Add more projects as needed
+    ];
+
+    // Free Projects Section
+    const freeProjects = document.getElementById('freeProjects');
+
+    freeProjectData.forEach(freeProject => {
+        const card = document.createElement('div');
+        card.classList.add('sameContainer');
+
+        card.innerHTML = `
+            <div class="free-img">
+                <img src="${freeProject.imgSrc}" alt="${freeProject.projectName}">
+            </div>
+            
+            <div class="free-info">
+                <div class="free-name">
+                    <h3>${freeProject.projectName}</h3>
+                </div>
+
+                <div class="free-reviews-rating">
+                    <img src="${freeProject.imgSrcRating}" alt="${freeProject.projectName}">
+                    <p>(${freeProject.reviews} reviews)</p>
+                    <h4 class="free-number-rating">${freeProject.rating}</h4>
+                </div>
+
+                <p class="free-description">${freeProject.description}</p>
+                
+                <div class="free-button">
+                    <a href="${freeProject.enrollLink}" class="enroll-now">Enroll Now</a>
+                </div>
+            </div>
+        `;
+
+        freeProjects.appendChild(card);
+    });
+</script>
+
+<!------------------------------ University (Under-gradutation & Post-gradutaion) ---------------------------------------->
+
+
+<section class="Degree">
+    <h2>Degree</h2>
+    <div class="Completedegree">
+        <h3>Under-graduate degrees</h3>
+        <div class="Under-graduate-slider" id="UndergraduateSlider"></div>
+        <div class="arrowIcon1 prevArrow1">&#9665;</div>
+        <div class="arrowIcon1 nextArrow1">&#9655;</div>
+    </div>
+     <hr>
+    <div class="Completedegree">
+        <h3>Post-graduate degrees</h3>
+        <div class="Post-graduate-slider" id="PostgraduateSlider"></div>
+        <div class="arrowIcon2 prevArrow2">&#9665;</div>
+        <div class="arrowIcon2 nextArrow2">&#9655;</div>
+    </div>
+</section>
+
+<script>
+    const UndergradeData = [
+        {
+            image: 'src/uni1.jpg',
+            Uniname: 'Pacifica State University',
+            name: 'Bachelor of Science in Environmental Sustainability',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'This program delves into environmental issues and sustainable solutions, equipping graduates for careers in environmental management, conservation, and sustainable development.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' 
+        },
+        {
+            image: 'src/uni2.jpg',
+            Uniname: ' MetroCity University',
+            name: 'Bachelor of Arts in Digital Media and Communication',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'Combine creative media production with modern communication strategies. Graduates are prepared for diverse roles in digital marketing, journalism, social media management, and content creation.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' 
+        },
+        {
+            image: 'src/uni3.jpg',
+            Uniname: 'Beacon University',
+            name: 'Bachelor of Business Administration in Entrepreneurship',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'Tailored for future business leaders and innovators, this program covers essential business topics, business planning, securing funding, and launching ventures. Graduates are well-prepared to start their own businesses or contribute to existing enterprises.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' 
+        },
+        {
+            image: 'src/uni4.jpg',
+            Uniname: 'NovaTech University',
+            name: 'Bachelor of Science in Biomedical Engineering',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'Explore the intersection of engineering and healthcare. Students gain expertise in designing medical devices, developing healthcare technologies, and applying engineering principles to complex medical challenges. Graduates are poised for careers in the medical device industry, healthcare research, and biomedical engineering.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' 
+        },
+    ];
+
+    const UndergraduateSlider = document.getElementById('UndergraduateSlider');
+    let currentUnderGraduateSlides = 0;
+
+    UndergradeData.forEach(undergradeCourse => {
+        const card = createCourseCard(undergradeCourse);
+        UndergraduateSlider.appendChild(card);
+    });
+
+    function createCourseCard(undergradeCourse) {
+        const card = document.createElement('div');
+        card.classList.add('grade-container');
+
+        card.innerHTML = `
+            <div class="course-img">
+                <img src="${undergradeCourse.image}" alt="${undergradeCourse.courseName}">
+            </div>
+            
+            <div class="grade-info">
+                <div class="grade-name">
+                    <h3>${undergradeCourse.Uniname}</h3>
+                    <h4>${undergradeCourse.name}</h4>
+                </div>
+
+                <div class="grade-reviews-rating">
+                    <img src="${undergradeCourse.starImage}" alt="">
+                    <p>(${undergradeCourse.reviews} reviews)</p>
+                    <h4 class="number-rating">${undergradeCourse.rating}</h4>
+                </div>
+
+                <p class="grade-description">${undergradeCourse.description}</p>
+                
+                <div class="price-and-button">
+                    <span>PRICE: ${undergradeCourse.price}</span>
+                    <a href="${undergradeCourse.enrollLink}" class="enroll-now">Enroll Now</a>
+                </div>
+            </div>
+        `;
+
+        return card;
+    }
+
+    function initializeSlider() {
+    const sliderUndergraduate = document.getElementById('UndergraduateSlider');
+    const cardsUndergraduate = document.querySelectorAll('.grade-container');
+    const cardCount = cardsUndergraduate.length;
+
+    let cardWidth = cardsUndergraduate[0].offsetWidth + 25; /* Adjusted card width to include margin */
+
+    // Appending additional cards for infinite loop
+    for (let i = 0; i < cardCount; i++) {
+        const clone = cardsUndergraduate[i].cloneNode(true);
+        sliderUndergraduate.appendChild(clone);
+    }
+
+    function navigateUndergraduateSlider(directionUndergrade) {
+        currentUnderGraduateSlides += directionUndergrade;
+        const maxUndergraduateSlide = cardCount * 2 - 1; // Fix: Change to maxUndergraduateSlide
+        if (currentUnderGraduateSlides < 0) {
+            currentUnderGraduateSlides = maxUndergraduateSlide;
+        } else if (currentUnderGraduateSlides > maxUndergraduateSlide) {
+            currentUnderGraduateSlides = 0;
+        }
+
+        const newPositionUndergrade = -currentUnderGraduateSlides * cardWidth;
+        sliderUndergraduate.style.transition = 'transform 0.5s ease-in-out';
+        sliderUndergraduate.style.transform = `translateX(${newPositionUndergrade}px)`;
+    }
+
+    document.querySelector('.prevArrow1').addEventListener('click', () => navigateUndergraduateSliderr(-1));
+    document.querySelector('.nextArrow1').addEventListener('click', () =>  navigateUndergraduateSlider(1));
+}
+
+initializeSlider();
+
+
+
+
+const PostgradeData = [
+{
+            image: 'src/uni5.jpg',
+            Uniname: 'Stanford University',
+            name: 'Master of Business Administration (MBA) ',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'This MBA program prepares students for leadership roles in global organizations, emphasizing strategic management, cross-cultural leadership, and international business.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' 
+        },
+
+        {
+            image: 'src/uni6.jpg',
+            Uniname: 'Harvard University',
+            name: ' Master of Science in Artificial Intelligence',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'Dive into the world of artificial intelligence, gaining expertise in machine learning, natural language processing, and computer vision to excel in AI-related fields.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' 
+        },
+        {
+            image: 'src/uni7.jpg',
+            Uniname: 'Pacific Coast University',
+            name: 'Master of Public Health (MPH) in Epidemiology',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'This program focuses on disease patterns, prevention, and outbreak investigation, preparing graduates for careers in public health research and epidemiology.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' 
+        },
+        {
+            image: 'src/uni8.jpg',
+            Uniname: 'Capital City Law School',
+            name: 'Juris Doctor (JD) with a Specialization in Environmental Law',
+            rating: "5.0",
+            reviews: 6745,
+            description: 'This JD program provides a strong foundation in environmental law, equipping students with the legal expertise to address pressing environmental issues and advocate for sustainable practices.',
+            price: '23$',
+            enrollLink: '#',
+            starImage: 'src/star5.png' 
+        },
+];
+
+
+    const PostgraduateSlider = document.getElementById('PostgraduateSlider');
+    let currentPostGraduateSlides = 0;
+
+    PostgradeData.forEach(postgradeCourse => {
+        const card = createCourseCard(postgradeCourse);
+        PostgraduateSlider.appendChild(card);
+    });
+
+    
+    function initializePostgraduateSlider() {
+    const sliderPostgraduate = document.getElementById('PostgraduateSlider');
+    const cardsPostgraduate = document.querySelectorAll('.grade-container');
+    const cardCount = cardsPostgraduate.length;
+
+    let cardWidth = cardsPostgraduate[0].offsetWidth + 25; /* Adjusted card width to include margin */
+
+    // Appending additional cards for infinite loop
+    for (let i = 0; i < cardCount; i++) {
+        const clone = cardsPostgraduate[i].cloneNode(true);
+        sliderPostgraduate.appendChild(clone);
+    }
+
+    function navigatePostgraduateSlider(directionPostgrade) {
+        currentPostGraduateSlides += directionPostgrade;
+        const maxPostgraduateSlide = cardCount * 2 - 1;
+
+        if (currentPostGraduateSlides < 0) {
+            currentPostGraduateSlides = maxPostgraduateSlide;
+        } else if (currentPostGraduateSlides > maxPostgraduateSlide) {
+            currentPostGraduateSlides = 0;
+        }
+
+        const newPositionPostgrade = -currentPostGraduateSlides * cardWidth;
+        sliderPostgraduate.style.transition = 'transform 0.5s ease-in-out';
+        sliderPostgraduate.style.transform = `translateX(${newPositionPostgrade}px)`;
+    }
+
+    // Corrected class names in event listeners
+// Corrected class names in event listeners
+document.querySelector('.prevArrow2').addEventListener('click', () => navigatePostgraduateSlider(-1));
+document.querySelector('.nextArrow2').addEventListener('click', () => navigatePostgraduateSlider(1));
+
+}
+
+initializePostgraduateSlider();
+
+</script>
+
+<!------------------------------ SignUp Modal --------------------------------------------->
+<div class="modal hidden">
+    <button class="close-modal">&times;</button>
+    <h2>Sign Up for Access Now!</h2>
+    <p>
+      Access your online courses today! New users, click "Sign Up" to create
+      an account. Returning users, simply log in by clicking "Already have an
+      existing account?" and continue your learning journey.
+    </p>
+    <div class="modal-btn">
+      <button
+        type="submit"
+        class="button-without-border"
+        onclick="GoToSignUpPage()"
+      >
+        Sign Up
+      </button>
+      <a href="login.html">Already Have An Existing Account</a>
+    </div>
+  </div>
+  <div class="overlayCourses hidden"></div>
+  
+  <script>
+    //*****************************Sign Up Modal********************************************
+  const modal = document.querySelector(".modal");
+  const overlay = document.querySelector(".overlayCourses");
+  const btnCloseModal = document.querySelector(".close-modal");
+  const btnsOpenModal = document.querySelectorAll(".enroll-now");
+
+  const openModal = function (e) {
+    e.preventDefault(); // Prevent form submission
+    modal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+  };
+
+  const closeModal = function () {
+    modal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  };
+
+  for (let i = 0; i < btnsOpenModal.length; i++) {
+    btnsOpenModal[i].addEventListener("click", openModal);
+  }
+
+  btnCloseModal.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+</script>
+
+
+ <!------------------------------ Footer --------------------------------------->
+ <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="src/logo.png" alt="Your Company Logo">
+        <p>Virtual Scholar is a global online learning platform that offers anyone,
+           anywhere access to online courses</p>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#"><b>Virtual scholar</b></a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Teach on</a></li>
+          <li><a href="#">Roadmap</a></li>
+          <li><a href="#">Career</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Our Team</a></li>
+          
+        </ul>
+      
+        <ul>
+          <li><a href="#"><b>Community</b></a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Developer</a></li>
+          <li><a href="#">Testimonial</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Affiliate</a></li>
+          <li><a href="#">Our Scholarship</a></li>
+        </ul>
+      
+    
+        <ul>
+          <li><a href="#"><b>More</b></a></li>
+          <li><a href="#">FQA's</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Code of Conduct</a></li>
+        </ul>
+  </div>
+</div>
+
+      <hr>
+      <div class="footer-info">
+        <div class="social-media">
+          <a>
+            <img src="src/instagram.png" alt="">
+          </a>
+
+      
+          <a>
+            <img src="src/facebook.png" alt="">
+          </a>
+
+
+          <a>
+            <img src="src/twitter.png" alt="">
+          </a>
+
+          
+          <a>
+            <img src="src/linkedIn.png" alt="">
+          </a>
+
+          <a>
+            <img src="src/youtube.png" alt="">
+          </a>
+        </div>
+        <p><b>©</b>2023 VirtualScholor, Inc. All rights reserved</p>
+      </div>
+    
+  </footer>
+   
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+ 
+    <!------------------------------ Navigation ------------------------------------>
+    <nav>
+      <div class="nav-left">
+        <img src="src/logo.png" alt="Logo" class="logo" /> </div>
+      <div class="nav-right" id="navLinks">
+        <img src="src/arrow-back.png" alt="back" class="BackIcon" onclick="hideMenu()"/>
+        <a href="homepage.html" class="nav-link">Home</a>
+        <a href="my-profile.html" class="nav-link">My Profile</a>
+        <a href="my-courses.html" class="nav-link">My Courses</a>
+        <a href="scholarship.html" class="nav-link">Scholarships</a>
+        
+        <a href="#" class="nav-link link-space">Setting</a>
+        <a href="login.html" class="nav-link ">Logout</a>
+      </div>
+      <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()"/>
+    </nav>
+
+
+     <!------------------------------ Application form ------------------------------------>
+    <div class="application">
+      <form action="" class="application-left">
+        <h1>Scholarship</h1>
+        <div class="application-input">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Full name of student"
+          />
+        </div>
+
+       
+          <label>Contact</label>
+          <div class="application-input">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email address"
+            />
+          </div>
+          <div class="application-input">
+            <input
+              type="tel"
+              name="number"
+              id="number"
+              placeholder="Phone number"
+            />
+          </div>
+        
+
+      
+          <label>Academic Information:</label>
+          <div class="application-input">
+            <input
+              type="text"
+              name="education"
+              id="education"
+              placeholder="Current level of education (e.g., high school senior, undergraduate, postgraduate)."
+            />
+          </div>
+          <div class="application-input">
+            <input type="text" name="gpa" id="gpa" placeholder="Current GPA" />
+          </div>
+          <div class="application-input">
+            <input
+              type="text"
+              name="major"
+              id="major"
+              placeholder="Major or field of study"
+            />
+          </div>
+        
+
+        
+          <label>Financial Information:</label>
+          <div class="application-input">
+            <input
+              type="text"
+              name="financialNeed"
+              id="financialNeed"
+              placeholder="Household income or financial need"
+            />
+          </div>
+          <div class="application-input">
+            <input
+              type="text"
+              name="financialAid"
+              id="financialAid"
+              placeholder="Any outstanding student loans or financial aid received."
+            />
+          </div>
+        
+
+          <label for="SOP">Essays or Personal Statement</label>
+        <div class="application-input">
+          <div class="files">
+            <input
+              type="file"
+              name="SOP"
+              id="SOP"
+              class="file-input"
+              accept=".pdf"
+              onchange="handleFileSelect('SOP')"
+            />
+            <input type="text" placeholder="Upload SOP in PDF" readonly />
+            <img
+              src="src/upload_file.png"
+              alt="Upload"
+              class="upload-icon"
+              onclick="document.getElementById('SOP').click()"
+            />
+          </div>
+        </div>
+  
+        <label for="transcript">Transcripts:</label>
+        <div class="application-input">
+          <div class="files">
+            <input
+              type="file"
+              name="transcript"
+              id="transcript"
+              class="file-input"
+              accept=".pdf"
+              onchange="handleFileSelect('transcript')"
+            />
+            <input
+              type="text"
+              placeholder="Upload Transcript in PDF"
+              readonly
+            />
+            <img
+              src="src/upload_file.png"
+              alt="Upload"
+              class="upload-icon"
+              onclick="document.getElementById('transcript').click()"
+            />
+          </div>
+        </div>
+
+        <label for="portfolio">Portfolio (if applicable):</label>
+        <div class="application-input">
+          <div class="files">
+            <input
+              type="file"
+              name="portfolio"
+              id="portfolio"
+              class="file-input"
+              accept=".pdf"
+              onchange="handleFileSelect('portfolio')"
+            />
+            <input type="text" placeholder="Upload portfolio in PDF" readonly />
+            <img
+              src="src/upload_file.png"
+              alt="Upload"
+              class="upload-icon"
+              onclick="document.getElementById('portfolio').click()"
+            />
+          </div>
+        </div>
+
+        <div class="application-checkbox">
+            <input
+              type="checkbox"
+              name="terms&conditions"
+              id="terms&conditions"
+            /> <label for="terms&conditions">I agree to scholarship terms and conditions and consent to the use of my data for the application process.</label>
+          </div>
+          <div class="submit-input">
+            <input type="submit" value="Submit" class="submit-btn">
+          </div>
+          
+      </form>
+
+      <div class="applications-verticalLine"></div>
+
+
+        <!------------------------------ Dicussion Forum ------------------------------------>
+
+      <div class="application-right">
+        <h2>Discussion Forum</h2>
+        <hr />
+
+        <p>
+          Contact the Scholarship Organization: Reach out to the organization
+          that awarded you the scholarship. They may have established channels
+          for connecting scholarship recipients, such as a dedicated online
+          platform, social media groups, or email newsletters.
+        </p>
+
+        <hr />
+
+        <p>
+          Join Online Communities: Look for online forums or social media groups
+          related to your specific scholarship program or the broader field of
+          study. These platforms are excellent for connecting with other
+          scholarship recipients and sharing information.
+        </p>
+
+        <hr />
+
+        <p>
+          Use University Resources: If your scholarship is associated with a
+          specific university, take advantage of the resources provided by the
+          university. They often have scholarship offices or advisers who can
+          help you connect with fellow scholars.
+        </p>
+
+        <hr />
+
+        <p>
+          Stay Informed: Stay updated with any communications from the
+          scholarship organization, as they may share information about
+          networking opportunities or resources for scholars.
+        </p>
+
+        <hr />
+
+        <div class="discussion">
+          <div class="comments" id="commentsContainer">
+              <!-- Comments will be dynamically added here -->
+          </div>
+          <div class="start-discussion">
+              <textarea id="newComment" cols="30" rows="10" placeholder="Start Discussion Here"></textarea>
+              <button onclick="addComment()">Send</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+      <!----------------------------- Successful Submission of Application Modal --------------------------------------------->
+    <div class="modal-application hidden">
+      <button class="close-modal">&times;</button>
+      <h2>Scholarship Application Confirmation</h2>
+      <p>
+        Dear Emily Anderson, <br> <br>
+
+        We are writing to confirm the successful submission of your scholarship application for the Academic Achievement Scholarship. Thank you for your interest and for taking the time to apply. <br><br>
+        
+        Your application is now being reviewed, and our scholarship committee will carefully evaluate all submissions. Please note that the review process may take some time, and we will notify you of the results once a decision has been made. <br><br>
+        
+        In the meantime, if you have any questions or need further information, please do not hesitate to contact our scholarship support team at emilyanderson@gmail.com or 98734735253. <br><br>
+        
+        We wish you the best of luck with your application. Your commitment to education and your pursuit of excellence are commendable, and we look forward to reviewing your submission. <br> <br>
+        
+        Thank you for choosing our platform for your educational journey. <br> <br>
+        
+        Sincerely, <br> <br>
+        
+        Academic Achievement Scholarship        
+      </p>
+      <div class="modal-btn btn-submission">
+        <a href="homepage.html">Back to homepage</a>
+      </div>
+    </div>
+    <div class="overlay-application hidden"></div>
+  <!------------------------------ Footer --------------------------------------->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="src/logo.png" alt="Your Company Logo">
+        <p>Virtual Scholar is a global online learning platform that offers anyone,
+           anywhere access to online courses</p>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#"><b>Virtual scholar</b></a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Teach on</a></li>
+          <li><a href="#">Roadmap</a></li>
+          <li><a href="#">Career</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Our Team</a></li>
+          
+        </ul>
+      
+        <ul>
+          <li><a href="#"><b>Community</b></a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Developer</a></li>
+          <li><a href="#">Testimonial</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Affiliate</a></li>
+          <li><a href="#">Our Scholarship</a></li>
+        </ul>
+      
+    
+        <ul>
+          <li><a href="#"><b>More</b></a></li>
+          <li><a href="#">FQA's</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Code of Conduct</a></li>
+        </ul>
+  </div>
+</div>
+
+      <hr>
+      <div class="footer-info">
+        <div class="social-media">
+          <a>
+            <img src="src/instagram.png" alt="">
+          </a>
+
+      
+          <a>
+            <img src="src/facebook.png" alt="">
+          </a>
+
+
+          <a>
+            <img src="src/twitter.png" alt="">
+          </a>
+
+          
+          <a>
+            <img src="src/linkedIn.png" alt="">
+          </a>
+
+          <a>
+            <img src="src/youtube.png" alt="">
+          </a>
+        </div>
+        <p><b>©</b>2023 VirtualScholor, Inc. All rights reserved</p>
+      </div>
+    
+  </footer>
+
+
+    
+   
+
+ <!------------------------------ Dicussion Forum JavaScrip------------------------------------>
+      <script>
+          const commentsData = [
+              { author: 'John Doe', text: 'This is the first comment.' },
+              { author: 'Alice Johnson', text: 'Nice discussion!'},
+              { author: 'Bob Smith', text: 'I have something to add.' }
+          ];
+  
+          function addComment() {
+              const commentsContainer = document.getElementById('commentsContainer');
+              const newCommentText = document.getElementById('newComment').value;
+  
+              if (newCommentText.trim() !== '') {
+                  const commentElement = createComment('You', newCommentText);
+                  commentsContainer.appendChild(commentElement);
+                  document.getElementById('newComment').value = '';
+              }
+          }
+  
+          function createComment(author, text) {
+              const commentElement = document.createElement('div');
+              commentElement.classList.add('comment');
+  
+              const commentHeader = document.createElement('div');
+              commentHeader.classList.add('comment-header');
+  
+              const initials = document.createElement('div');
+              initials.classList.add('comment-initial');
+              initials.innerText = getInitials(author);
+  
+              const authorElement = document.createElement('div');
+              authorElement.classList.add('comment-author');
+              authorElement.innerText = author;
+  
+              const commentText = document.createElement('div');
+              commentText.classList.add('comment-text');
+              commentText.innerText = text;
+  
+              const commentReply = document.createElement('div');
+              commentReply.classList.add('comment-reply');
+              commentReply.innerText = 'Add your reply';
+              commentReply.onclick = () => toggleReplyForm(commentReply);
+  
+              const viewReplies = document.createElement('div');
+              viewReplies.classList.add('view-replies');
+              viewReplies.innerText = 'View Replies';
+              viewReplies.onclick = () => toggleReplies(commentElement);
+  
+              const repliesContainer = document.createElement('div');
+              repliesContainer.classList.add('replies');
+  
+              const commentReplyForm = document.createElement('div');
+              commentReplyForm.classList.add('comment-reply-form');
+  
+              const replyTextarea = document.createElement('textarea');
+              replyTextarea.placeholder = 'Add your reply...';
+  
+              const postReplyButton = document.createElement('button');
+              postReplyButton.innerText = 'Send';
+              postReplyButton.onclick = () => postReply(replyTextarea, commentReplyForm);
+  
+              commentReplyForm.appendChild(replyTextarea);
+              commentReplyForm.appendChild(postReplyButton);
+  
+              commentHeader.appendChild(initials);
+              commentHeader.appendChild(authorElement);
+              
+              commentElement.appendChild(commentHeader);
+              commentHeader.appendChild(viewReplies);
+              commentElement.appendChild(commentText);
+              commentElement.appendChild(commentReply);
+              commentElement.appendChild(commentReplyForm);
+              commentElement.appendChild(repliesContainer);
+  
+              return commentElement;
+          }
+  
+          function getInitials(author) {
+              const names = author.split(' ');
+              return names.map(name => name[0]).join('').toUpperCase();
+          }
+  
+          function toggleReplyForm(reply) {
+              const replyForm = reply.nextElementSibling;
+              replyForm.style.display = replyForm.style.display === 'none' ? 'block' : 'none';
+          }
+  
+          function toggleReplies(commentElement) {
+              const repliesContainer = commentElement.querySelector('.replies');
+              const viewReplies = commentElement.querySelector('.view-replies');
+  
+              repliesContainer.style.display = repliesContainer.style.display === 'none' ? 'block' : 'none';
+              viewReplies.innerText = repliesContainer.style.display === 'none' ? 'View Replies' : 'Hide Replies';
+          }
+  
+          function postReply(replyTextarea, replyForm) {
+              const replyText = replyTextarea.value;
+  
+              if (replyText.trim() !== '') {
+                  const replyElement = createComment('You', replyText);
+                  replyForm.parentElement.querySelector('.replies').appendChild(replyElement);
+                  replyTextarea.value = '';
+                  replyForm.style.display = 'none';
+              }
+          }
+  
+          const commentsContainer = document.getElementById('commentsContainer');
+          commentsData.forEach(comment => {
+              const commentElement = createComment(comment.author, comment.text);
+              commentsContainer.appendChild(commentElement);
+          });
+      </script>
+
+
+     <!------------------------------ Application Form--File Upload ------------------------------------>
+    <script>
+      function handleFileSelect(inputId) {
+        const fileInput = document.getElementById(inputId);
+        const fileName = fileInput.files[0].name;
+        // You can display the selected file name or handle further actions.
+        console.log(`Selected file for ${inputId}:`, fileName);
+      }
+    </script>
+
+    <!------------------------------ Application Form--File Upload ------------------------------------>
+    <script>
+        const modal = document.querySelector(".modal-application");
+      const overlay = document.querySelector(".overlay-application");
+      const btnCloseModal = document.querySelector(".close-modal");
+      const btnsOpenModal = document.querySelectorAll(".submit-btn");
+
+      const openModal = function (e) {
+        e.preventDefault(); // Prevent form submission
+        modal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+      };
+
+      const closeModal = function () {
+        modal.classList.add("hidden");
+        overlay.classList.add("hidden");
+      };
+
+      for (let i = 0; i < btnsOpenModal.length; i++) {
+        btnsOpenModal[i].addEventListener("click", openModal);
+      }
+
+      btnCloseModal.addEventListener("click", closeModal);
+      overlay.addEventListener("click", closeModal);
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+          closeModal();
+        }
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

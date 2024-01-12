@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <!------------------------------ navigation ------------------------------------>
+    <nav>
+        <div class="nav-left">
+          <img src="src/logo.png" alt="Logo" class="logo" /> </div>
+        <div class="nav-right" id="navLinks">
+          <img src="src/arrow-back.png" alt="back" class="BackIcon" onclick="hideMenu()"/>
+          <a href="explore-courses.html" class="nav-link">Explore Courses</a>
+          <a href="explore-scholarship.html" class="nav-link">Explore Scholarship</a>
+          <a href="#about" class="nav-link">About Us</a>
+          <a href="#contact" class="nav-link">Contact Us</a>
+          
+          <a href="signup.html" class="nav-link link-button" onclick="GoToSignUpPage()">Sign Up</a>
+          <a href="login.html" class="nav-link link-button-border" onclick="GoToLoginPage()">Login</a>
+        </div>
+        <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()"/>
+      </nav>
+
+     <!------------------------------ Header --------------------------------------->
+     <header class="header">
+        <div class="header-left">
+          <h1>Empowering Minds, Unlocking Opportunities – Your Path to a Brighter Future Starts Here</h1>
+          <p>At our online learning platform, we believe in the transformative power of education. We're dedicated
+             to providing a nurturing environment where learners of all backgrounds can thrive. Our mission is to
+             empower minds and unlock opportunities for a brighter, knowledge-filled future. Whether you're just starting
+             your learning journey or looking to enhance your skills, we're here to support your educational 
+             aspirations every step of the way.</p>
+             <div class="buttons">
+              <button class="button-with-border">Learn More</button>
+              <button  class="button-without-border">Contact Us</button>
+             </div> 
+        </div>
+
+        <div class="header-right">
+          <img src="src/landing-page-img2.png" alt="Image1">
+          <img src="src/landing-page-img1.png" alt="Image2"  class="absolute">
+        </div>
+     </header>
+
+
+    <!------------------------------ Why/About Us ---------------------------------------> 
+    <div class="why-us" id="about">
+      <h1>Why <img src="src/logo.png" alt="">?</h1>
+      <div class="icon-section">
+        <div class="box">
+          <img src="src/learn-anything.png" alt="">
+          <h3>Learn anything anywhere</h3>
+        </div>
+  
+        <div class="vertical-line"></div>
+  
+        <div class="box">
+          <img src="src/scholarship.png" alt="">
+          <h3>Scholarships</h3>
+        </div>
+  
+        <div class="vertical-line"></div>
+  
+        <div class="box">
+          <img src="src/certificate.png" alt="">
+          <h3>Certificate</h3>
+        </div>
+  
+        <div class="horizontal-line"></div>
+  
+        <div class="box">
+          <img src="src/discussion-24.png" alt="">
+          <h3>Discussion 24/7</h3>
+        </div>
+  
+        <div class="box">
+          <img src="src/case-study.png" alt="">
+          <h3>Case Study</h3>
+        </div>
+  
+        <div class="box">
+          <img src="src/upload-portfolio.png" alt="">
+          <h3>Upload Portfolio</h3>
+        </div>
+      </div>
+    </div>
+  
+
+
+  <!------------------------------ Our Esteemed Collaborators---------------------------------------> 
+   <div class="collaborators">
+    <h1>Our Esteemed Collaborators</h1>
+      
+      <div class="allCollaborators">
+
+        <div class="collaboration-with">
+          <img src="src/harvard.png" alt="">
+          <p>Harvard University collaborates to provide a selection of
+             online courses, extending their educational reach.</p>
+        </div>
+
+        <div class="collaboration-with">
+          <img src="src/Stanford.png" alt="">
+          <p>Stanford University offers courses in technology,
+             entrepreneurship, and innovation on your platform.</p>
+        </div>
+
+        <div class="collaboration-with">
+          <img src="src/aws.png" alt="">
+          <p>AWS offers cloud computing and infrastructure courses,
+             empowering learners with in-demand tech skills.</p>
+        </div>
+
+        <div class="collaboration-with">
+          <img src="src/google.png" alt="">
+          <p>Google partners to offer courses in digital marketing,
+             web development, and machine learning.</p>
+        </div>
+
+        <div class="collaboration-with">
+          <img src="src/microsoft.png" alt="">
+          <p>Microsoft collaborates to provide courses in software
+             development, cloud services, and cybersecurity.</p>
+        </div>
+      </div>
+   </div>
+
+
+   <!------------------------------Our Top Instructors---------------------------------------> 
+   <div class="instructors">
+    <h1>Our Top Instructors</h1>
+      
+      <div class="allInstructors">
+
+        <div class="topInstructor">
+          <img src="src/instructor1.jpg" alt="Instructors1">
+          <h3>Professor Emily Lawson</h3>
+          <p>Professor Lawson is a seasoned educator with 20+ years of teaching
+             experience. Her specialty is pedagogy and teaching methodologies,
+             and she's dedicated to helping educators improve their instructional practices.</p>
+        </div>
+
+        <div class="topInstructor">
+          <img src="src/instructor2.jpg" alt="Instructors2">
+          <h3>Dr. Sarah Rodriguez</h3>
+          <p>Dr. Rodriguez is a clinical psychologist and expert in child development.
+             She's passionate about helping parents and caregivers support children's
+            mental and emotional well-being.</p>
+        </div>
+
+        <div class="topInstructor">
+          <img src="src/instrutor3.jpg" alt="Instructors3">
+          <h3>David Chang</h3>
+          <p>David Chang is a tech guru with a proven track record in software development
+             and technology. He simplifies complex tech concepts for learners and keeps
+            them updated on the latest trends.</p>
+        </div>
+
+      </div>
+   </div>
+
+    <!------------------------------ Explore Reviews ---------------------------------------> 
+    <div class="explore-reviews">
+      <h1>Explore Reviews</h1>
+
+      <div class="review-section">
+        <div class="reviews">
+          <h3>The Ultimate Learning Hub!</h3>
+          <p>This platform is a revelation. It offers a diverse selection of 
+             courses taught by experts in their respective fields. The courses
+            are engaging, well-structured, and provide practical knowledge. As a 
+            working professional, I appreciate the flexibility and affordability 
+            it offers. The scholarship options are a cherry on top. Highly recommended!</p>
+          
+          <div class="name-star">
+            <h4>Sarah M.</h4>
+            <img src="src/star5.png" alt="">
+          </div>
+        </div>
+  
+        <div class="verticalLine"></div>
+  
+         
+        <div class="reviews">
+          <h3>Life-Changing Education Access!</h3>
+          <p>I can't thank this platform enough for making education accessible to all.
+             Being a parent and working full-time, I thought my learning days were behind me. 
+             But this platform has allowed me to pursue my passion for photography. The courses 
+             are high-quality, and the community is supportive. It's changed my life.</p>
+          
+          <div class="name-star">
+            <h4>John D.</h4>
+            <img src="src/star5.png" alt="">
+          </div>
+        </div>
+  
+        <div class="horizontalLine"></div>
+  
+      
+          <div class="reviews">
+            <h3>Top-Notch Instructors, Affordable Prices!</h3>
+            <p>I've taken multiple courses on this platform and have been consistently impressed.
+               The instructors are knowledgeable and passionate about their subjects. The website 
+               is user-friendly, and the pricing is unbeatable. I've learned practical skills that 
+               have boosted my career. Truly a gem for lifelong learners.</p>
+            
+            <div class="name-star">
+              <h4>Emma P.</h4>
+              <img src="src/star5.png" alt="">
+            </div>
+          </div>
+  
+          
+            <div class="reviews">
+              <h3>Empowering the Future Generation!</h3>
+              <p>As an educator, I can't thank this platform enough for the resources it offers. 
+                The content is not just informative but also inspirational. It's a powerful tool to 
+                supplement classroom learning and inspire students to pursue their passions. 
+                The scholarship opportunities open doors for underserved students. A fantastic resource 
+                for the future generation.</p>
+              
+              <div class="name-star">
+                <h4>Olivia</h4>
+                <img src="src/star5.png" alt="">
+              </div>
+            </div>
+  
+      </div>
+
+      <button class="button-with-border view-more">View More</button>
+    </div>
+
+    <!------------------------------ Join Us --------------------------------------->
+    <div class="join-us">
+      <div class="join-left">
+        <h1>Join Over  <b>35,000</b> Learners Worldwide</h1>
+        <button class="button-with-border">Join Now</button>
+      </div>
+
+      <div class="join-right">
+        <div class="bg-img">
+           <img src="src/join-img.png" alt="">
+        </div>
+      </div>
+    </div> 
+
+
+    <!------------------------------ Contact Us --------------------------------------->
+    <div class="contact-us" id="contact">
+      <h1>Contact Us</h1>
+      <form action="" class="contact">
+        <div class="input-group">
+          <input type="text" name="name" id="name" placeholder="Enter Your Name">
+        </div>
+        <div class="input-group">
+          <input type="text" name="email" id="email"  placeholder="Enter Your Email">
+        </div>
+        <div class="input-group">
+          <input type="text" name="subject" id="subject" placeholder="Enter Your Subject">
+        </div>
+        <div class="input-group textarea-group">
+          <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+        </div>
+        <button class="button-with-border send-message">Send Message</button>
+      </form>
+    </div>
+    
+    
+
+    <!------------------------------ Footer --------------------------------------->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="src/logo.png" alt="Your Company Logo">
+          <p>Virtual Scholar is a global online learning platform that offers anyone,
+             anywhere access to online courses</p>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="#"><b>Virtual scholar</b></a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Teach on</a></li>
+            <li><a href="#">Roadmap</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Our Team</a></li>
+            
+          </ul>
+        
+          <ul>
+            <li><a href="#"><b>Community</b></a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Developer</a></li>
+            <li><a href="#">Testimonial</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Affiliate</a></li>
+            <li><a href="#">Our Scholarship</a></li>
+          </ul>
+        
+      
+          <ul>
+            <li><a href="#"><b>More</b></a></li>
+            <li><a href="#">FQA's</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Code of Conduct</a></li>
+          </ul>
+    </div>
+  </div>
+
+        <hr>
+        <div class="footer-info">
+          <div class="social-media">
+            <a>
+              <img src="src/instagram.png" alt="">
+            </a>
+
+        
+            <a>
+              <img src="src/facebook.png" alt="">
+            </a>
+
+
+            <a>
+              <img src="src/twitter.png" alt="">
+            </a>
+
+            
+            <a>
+              <img src="src/linkedIn.png" alt="">
+            </a>
+
+            <a>
+              <img src="src/youtube.png" alt="">
+            </a>
+          </div>
+          <p><b>©</b>2023 VirtualScholor, Inc. All rights reserved</p>
+        </div>
+      
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

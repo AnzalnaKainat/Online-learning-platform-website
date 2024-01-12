@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Explore Scholarship</title>
+  </head>
+  <body>
+    <!------------------------------ navigation ------------------------------------>
+    <nav>
+      <div class="nav-left">
+        <img src="src/logo.png" alt="Logo" class="logo" /> </div>
+      <div class="nav-right" id="navLinks">
+        <img src="src/arrow-back.png" alt="back" class="BackIcon" onclick="hideMenu()"/>
+        <a href="explore-courses.html" class="nav-link">Explore Courses</a>
+        <a href="explore-scholarship.html" class="nav-link">Explore Scholarship</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#contact" class="nav-link">Contact Us</a>
+        
+        <a href="signup.html" class="nav-link link-button" onclick="GoToSignUpPage()">Sign Up</a>
+        <a href="login.html" class="nav-link link-button-border" onclick="GoToLoginPage()">Login</a>
+      </div>
+      <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()"/>
+    </nav>
+
+     <!------------------------------ Search & Filter Buttons--------------------------------------------->
+    <div class="search-bar">
+      <div class="search-icon">
+        <img src="src/search.png" alt="">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search"
+          oninput="filterScholarships()"
+        />
+      </div>
+      <div class="filter-icon" onclick="openFilter()">
+        <img src="src/filter.png" alt="">
+        <p>Filter</p>
+      </div>
+    </div>
+
+     <!------------------------------ Filter Section --------------------------------------------->
+    <div class="filter-container">
+      <button class="close-filter" onclick="closeFilter()">&times;</button>
+      <div class="filter-options">
+        <label for="filterOption">Filter by:</label>
+        <select id="filterOption" onchange="filterScholarships()">
+          <option value="all">All</option>
+          <option value="STEM">STEM</option>
+          <option value="Community">Community Engagement</option>
+          <option value="Diversity">Diversity</option>
+          <option value="Academic">Academic Achievement</option>
+          <option value="GlobalCitizen">Global Citizen</option>
+          <option value="Entrepreneurial">Entrepreneurial</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="scholarshipContainer" class="scholarship-container"></div>
+   
+
+    <!------------------------------ SignUp Modal --------------------------------------------->
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h2>Sign Up for Access Now!</h2>
+      <p>
+        Access your online courses today! New users, click "Sign Up" to create
+        an account. Returning users, simply log in by clicking "Already have an
+        existing account?" and continue your learning journey.
+      </p>
+      <div class="modal-btn">
+        <button
+          type="submit"
+          class="button-without-border"
+          onclick="GoToSignUpPage()"
+        >
+          Sign Up
+        </button>
+        <a href="login.html">Already Have An Existing Account</a>
+      </div>
+    </div>
+    <div class="overlay hidden"></div>
+
+
+    <!------------------------------ Footer --------------------------------------->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="src/logo.png" alt="Your Company Logo">
+          <p>Virtual Scholar is a global online learning platform that offers anyone,
+             anywhere access to online courses</p>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="#"><b>Virtual scholar</b></a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Teach on</a></li>
+            <li><a href="#">Roadmap</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Our Team</a></li>
+            
+          </ul>
+        
+          <ul>
+            <li><a href="#"><b>Community</b></a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Developer</a></li>
+            <li><a href="#">Testimonial</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Affiliate</a></li>
+            <li><a href="#">Our Scholarship</a></li>
+          </ul>
+        
+      
+          <ul>
+            <li><a href="#"><b>More</b></a></li>
+            <li><a href="#">FQA's</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Code of Conduct</a></li>
+          </ul>
+    </div>
+  </div>
+
+        <hr>
+        <div class="footer-info">
+          <div class="social-media">
+            <a>
+              <img src="src/instagram.png" alt="">
+            </a>
+
+        
+            <a>
+              <img src="src/facebook.png" alt="">
+            </a>
+
+
+            <a>
+              <img src="src/twitter.png" alt="">
+            </a>
+
+            
+            <a>
+              <img src="src/linkedIn.png" alt="">
+            </a>
+
+            <a>
+              <img src="src/youtube.png" alt="">
+            </a>
+          </div>
+          <p><b>©</b>2023 VirtualScholor, Inc. All rights reserved</p>
+        </div>
+      
+    </footer>
+
+
+    <!----------------------- JavaScript ----------------------->
+    <script>
+
+     //************************Dynamically Creating Scholarship Boxes--- Search & Filter Functionalities***********************************
+      const scholarships = [
+        {
+          title: "Academic Achievement Scholarship",
+          details:
+            "The Academic Achievement Scholarship is a prestigious award that acknowledges and rewards academic excellence in the online learning community. This scholarship provides a 40% reduction in tuition fees, making quality education more accessible to high-achieving students. It is designed to honor and support those who have consistently demonstrated outstanding scholastic performance.",
+          eligibility:
+            "Minimum GPA of 3.5., Submission of academic transcripts reflecting excellence.,Demonstrated dedication to academic pursuits and a track record of consistently high academic performance",
+          applyLink: "#",
+        },
+        {
+          title: "Diversity and Inclusion Scholarship",
+          details:
+            "The Diversity and Inclusion Scholarship is committed to promoting diversity, equality, and inclusivity in education. This scholarship offers a substantial 50% reduction in tuition fees, aiming to create an educational environment that values and welcomes learners from various backgrounds and experiences. It is open to individuals who have the passion and dedication to champion diversity in learning.",
+          eligibility:
+            "Eligible candidates include individuals from racial and ethnic minorities individuals with disabilities and other underrepresented groups., A commitment to fostering inclusivity and diversity in the educational environment through advocacy participation or leadership roles.",
+          applyLink: "#",
+        },
+        {
+          title: "Community Engagement Grant",
+          details:
+            "The Community Engagement Grant celebrates and supports the spirit of community service and volunteerism. This grant offers a 30% reduction in tuition fees to students who have demonstrated a positive impact on their communities through active volunteer work and community service. It is designed to acknowledge the importance of giving back and encourages learners to continue making a difference.",
+          eligibility:
+            "Candidates should have a documented history of community engagement and volunteer work, demonstrating a significant and meaningful impact on the community., The proposed project should be aligned with the values of community service and social responsibility., A passion for ongoing community involvement and a commitment to addressing real-world challenges through volunteering. ",
+          applyLink: "#",
+        },
+        {
+          title: "Women in STEM Scholarship",
+          details:
+            "The Women in STEM Scholarship is dedicated to empowering women in science, technology, engineering, and mathematics fields. This scholarship offers a substantial 45% reduction in tuition fees, with the goal of bridging the gender gap in STEM disciplines. It aims to recognize and support women who are pursuing STEM-related courses and fostering gender diversity in these fields.",
+          eligibility:
+            " Open to female students actively pursuing STEM-related courses such as engineering computer science biology or mathematics.,  Applicants must demonstrate a strong commitment to STEM fields showcasing their achievements involvement and dedication to these areas. ",
+          applyLink: "#",
+        },
+        {
+          title: "Global Citizen Scholarship",
+          details:
+            "The Global Citizen Scholarship celebrates international cooperation, cultural exchange, and the value of a global perspective. This scholarship offers a 35% reduction in tuition fees and encourages students to connect with peers from diverse countries, fostering a deeper understanding of global issues and perspectives.",
+          eligibility:
+            "Available to learners from various nations fostering global diversity and cross-cultural interactions., Eligible applicants should express a passion for building global connections, fostering intercultural understanding and addressing global challenges.",
+          applyLink: "#",
+        },
+        {
+          title: "Entrepreneurial Vision Grant",
+          details:
+            "The Entrepreneurial Vision Grant is designed to empower aspiring entrepreneurs and innovators to turn their business dreams into reality. This grant offers a significant 55% reduction in tuition fees and is aimed at supporting students who have a strong entrepreneurial vision and a clear business project or idea they intend to develop.",
+          eligibility:
+            "Open to individuals who can articulate a strong entrepreneurial vision and present a well-defined business project or idea that they aim to develop., Applicants should provide a detailed business plan outlining the project's feasibility impact and potential for success.",
+          applyLink: "#",
+        },
+      ];
+
+      // Function to dynamically create scholarship boxes
+      function createScholarshipBoxes() {
+        const scholarshipContainer = document.getElementById(
+          "scholarshipContainer"
+        );
+        scholarshipContainer.innerHTML = "";
+
+        scholarships.forEach((scholarship) => {
+          const scholarshipBox = document.createElement("div");
+          scholarshipBox.classList.add("scholarship-box");
+
+          scholarshipBox.innerHTML = `
+                    <h2>${scholarship.title}</h2>
+                    <p>${scholarship.details}</p>
+                    <h3>Eligibility Criteria</h3>
+                    <ol class="scholarship-list">
+                        ${scholarship.eligibility
+                          .split(",")
+                          .map((criteria) => `<li>${criteria.trim()}</li>`)
+                          .join("")}
+                    </ol>
+                    <a href="${
+                      scholarship.applyLink
+                    }" class="apply-button">Apply Now</a>
+                `;
+
+          scholarshipContainer.appendChild(scholarshipBox);
+        });
+      }
+  
+      // Filter Functionality
+      function openFilter() {
+        const filterContainer = document.querySelector(".filter-container");
+        filterContainer.style.display = "flex";
+      }
+
+      function closeFilter() {
+        const filterContainer = document.querySelector(".filter-container");
+        filterContainer.style.display = "none";
+        createScholarshipBoxes();
+      }
+
+      // Function to filter scholarships based on search input and filter option
+      function filterScholarships() {
+        const searchInput = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const filterOption = document
+          .getElementById("filterOption")
+          .value.toLowerCase();
+
+        const filteredScholarships = scholarships.filter((scholarship) => {
+          return (
+            scholarship.title.toLowerCase().includes(searchInput) &&
+            (filterOption === "all" ||
+              scholarship.title.toLowerCase().includes(filterOption))
+          );
+        });
+
+        displayFilteredScholarships(filteredScholarships);
+      }
+
+      // Function to display filtered scholarships
+      function displayFilteredScholarships(filteredScholarships) {
+        const scholarshipContainer = document.getElementById(
+          "scholarshipContainer"
+        );
+        scholarshipContainer.innerHTML = "";
+
+        filteredScholarships.forEach((scholarship) => {
+          const scholarshipBox = document.createElement("div");
+          scholarshipBox.classList.add("scholarship-box");
+
+          scholarshipBox.innerHTML = `
+                <h2>${scholarship.title}</h2>
+                <p>${scholarship.details}</p>
+                <h3>Eligibility Criteria</h3>
+                <ol class="scholarship-list">
+                    ${scholarship.eligibility
+                      .split(",")
+                      .map((criteria) => `<li>${criteria.trim()}</li>`)
+                      .join("")}
+                </ol>
+                <a href="${
+                  scholarship.applyLink
+                }" class="apply-button">Apply Now</a>
+            `;
+
+          scholarshipContainer.appendChild(scholarshipBox);
+        });
+      }
+
+      createScholarshipBoxes();
+
+      //*****************************Sign Up Modal********************************************
+      const modal = document.querySelector(".modal");
+      const overlay = document.querySelector(".overlay");
+      const btnCloseModal = document.querySelector(".close-modal");
+      const btnsOpenModal = document.querySelectorAll(".apply-button ");
+
+      const openModal = function (e) {
+        e.preventDefault(); // Prevent form submission
+        modal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+      };
+
+      const closeModal = function () {
+        modal.classList.add("hidden");
+        overlay.classList.add("hidden");
+      };
+
+      for (let i = 0; i < btnsOpenModal.length; i++) {
+        btnsOpenModal[i].addEventListener("click", openModal);
+      }
+
+      btnCloseModal.addEventListener("click", closeModal);
+      overlay.addEventListener("click", closeModal);
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+          closeModal();
+        }
+      });
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
