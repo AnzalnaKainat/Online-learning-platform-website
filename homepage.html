@@ -27,7 +27,6 @@
 
 
       <!------------------------------ Search & Filter Buttons--------------------------------------------->
-      <!-- <div class="header-courses"></div> -->
      <div class="search-bar">
         <div class="search-icon">
           <img src="src/search.png" alt="">
@@ -50,76 +49,14 @@
         </div>
       </div>
 
-   
-      <script>
-        // Your existing JavaScript code
-      
-        function filterCoursesByKeyword(keyword) {
-          const allSections = document.querySelectorAll('.professional-certificate, .guided-projects, .free-container, .Completedegree');
-      
-          allSections.forEach(section => {
-            const courses = section.querySelectorAll('.professional-container, .project-container, .sameContainer, .grade-container');
-      
-            courses.forEach(course => {
-              const courseName = course.querySelector('h2, h3').textContent.toLowerCase();
-              const description = course.querySelector('p, .free-description, .grade-description').textContent.toLowerCase();
-      
-              if (courseName.includes(keyword) || description.includes(keyword)) {
-                course.style.display = 'block';
-              } else {
-                course.style.display = 'none';
-              }
-            });
-          });
-        }
-      
-        function clearSearchResults() {
-          const allCourses = document.querySelectorAll('.professional-container, .project-container, .sameContainer, .grade-container');
-      
-          allCourses.forEach(course => {
-            course.style.display = 'block';
-          });
-        }
-      
+   <script>
         function openFilter() {
     const filterDropdown = document.getElementById('filterDropdown');
     filterDropdown.style.display = (filterDropdown.style.display === 'none' || filterDropdown.style.display === '') ? 'block' : 'none';
   }
+  document.getElementById('filterIcon').addEventListener('click', openFilter);
+   </script>
 
-        function filterScholarships() {
-          const searchInput = document.getElementById('searchInput');
-          const keyword = searchInput.value.toLowerCase();
-      
-          if (keyword.trim() === '') {
-            clearSearchResults();
-          } else {
-            filterCoursesByKeyword(keyword);
-          }
-        }
-      
-        function filterCoursesByFilterOption() {
-          const filterDropdown = document.getElementById('filterDropdown');
-          const selectedOption = filterDropdown.value;
-      
-          const allCourses = document.querySelectorAll('.professional-container, .project-container, .sameContainer, .grade-container');
-      
-          allCourses.forEach(course => {
-            const ratingElement = course.querySelector('.number-rating, .free-number-rating');
-            const rating = parseFloat(ratingElement ? ratingElement.textContent : 0);
-      
-            if (selectedOption === '' || rating >= parseFloat(selectedOption)) {
-              course.style.display = 'block';
-            } else {
-              course.style.display = 'none';
-            }
-          });
-        }
-      
-        // Attach event listeners
-        document.getElementById('filterIcon').addEventListener('click', openFilter);
-        document.getElementById('searchInput').addEventListener('input', filterScholarships);
-        document.getElementById('filterDropdown').addEventListener('change', filterCoursesByFilterOption);
-      </script>
       
       
        <!------------------------------ Professional Certificate ------------------------------------>
@@ -261,7 +198,7 @@
 
         function navigateProfessionalSlider(direction) {
             currentSlide += direction;
-            const maxSlide = cardCount * 2 - 1; // Double the cards for looping
+            const maxSlide = cardCount * 2 - 3; // Double the cards for looping
             if (currentSlide < 0) {
                 currentSlide = maxSlide;
             } else if (currentSlide > maxSlide) {
@@ -689,7 +626,7 @@
 
     function navigateUndergraduateSlider(directionUndergrade) {
         currentUnderGraduateSlides += directionUndergrade;
-        const maxUndergraduateSlide = cardCount * 2 - 1; // Fix: Change to maxUndergraduateSlide
+        const maxUndergraduateSlide = cardCount * 2 - 3; 
         if (currentUnderGraduateSlides < 0) {
             currentUnderGraduateSlides = maxUndergraduateSlide;
         } else if (currentUnderGraduateSlides > maxUndergraduateSlide) {
@@ -701,7 +638,7 @@
         sliderUndergraduate.style.transform = `translateX(${newPositionUndergrade}px)`;
     }
 
-    document.querySelector('.prevArrow1').addEventListener('click', () => navigateUndergraduateSliderr(-1));
+    document.querySelector('.prevArrow1').addEventListener('click', () => navigateUndergraduateSlider(-1));
     document.querySelector('.nextArrow1').addEventListener('click', () =>  navigateUndergraduateSlider(1));
 }
 
@@ -783,7 +720,7 @@ const PostgradeData = [
 
     function navigatePostgraduateSlider(directionPostgrade) {
         currentPostGraduateSlides += directionPostgrade;
-        const maxPostgraduateSlide = cardCount * 2 - 1;
+        const maxPostgraduateSlide = cardCount * 2 - 3;
 
         if (currentPostGraduateSlides < 0) {
             currentPostGraduateSlides = maxPostgraduateSlide;

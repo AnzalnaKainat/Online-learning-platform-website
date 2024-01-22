@@ -21,13 +21,13 @@ function GoToLoginPage(){
   window.location.href = 'login.html';
 }
 function GoToHomePage(){
-  window.location.href="homepage.html";
+  window.location.href = "homepage.html";
 }
 function ToGoScholarship(){
-  window.location.href="scholarship.html";
+  window.location.href = "scholarship.html";
 }
 function EnrolledCourseInfo(){
-  window.location.href="enrolled-course-info.html";
+  window.location.href = "enrolled-course-info.html";
 }
 function GoToCourseMaterial(){
   window.location.href = "course-material.html";

@@ -34,7 +34,7 @@
         <div class="cousrse-duration-row">
              <!------------------------------ Course Duration - Left ------------------------------------>
             <div class="course-duration-col-left">
-                <a href="javascript:void(0)" onclick="showWeekContent(1)" ><span>&#10004;</span> Week 1</a>
+                <a href="javascript:void(0)" onclick="showWeekContent(1)" class="active"><span>&#10004;</span> Week 1</a>
                 <a href="javascript:void(0)" onclick="showWeekContent(2)"><span>&#10004;</span> Week 2</a>
                 <a href="javascript:void(0)" onclick="showWeekContent(3)"><span>&#10004;</span> Week 3</a>
                 <a href="javascript:void(0)" class="distance">Discussion Forum</a>
@@ -337,30 +337,28 @@
 
 
     <script>
-        function showWeekContent(weekNumber) {
-            // Hide all weeks content
-            const allWeeks = document.querySelectorAll('.weeks-syllabus');
-            allWeeks.forEach((week) => {
-                week.style.display = 'none';
-            });
+     function showWeekContent(weekNumber) {
+  // Hide all weeks content
+  const allWeeks = document.querySelectorAll('.weeks-syllabus');
+  allWeeks.forEach((week) => {
+    week.style.display = 'none';
+  });
 
-            // Show the clicked week content
-            const selectedWeek = document.getElementById(`week${weekNumber}`);
-            selectedWeek.style.display = 'block';
+  // Show the clicked week content
+  const selectedWeek = document.getElementById(`week${weekNumber}`);
+  selectedWeek.style.display = 'block';
 
-            // Remove dark green border from all week links
-            const allLinks = document.querySelectorAll('.course-duration-col-left a');
-            allLinks.forEach((link) => {
-                link.style.borderBottom = 'none';
-            });
+  // Remove dark green border from all week links
+  const allLinks = document.querySelectorAll('.course-duration-col-left a');
+  allLinks.forEach((link) => {
+    link.classList.remove('active');
+  });
 
-            // Highlight the current week link with dark green border
-            const currentLink = document.querySelector(`.course-duration-col-left a:nth-child(${weekNumber})`);
-            currentLink.style.borderBottom = '3px solid #397e81';
-            currentLink.style.width = '100px';
-            currentLink.style.paddingBottom = '10px';
-            currentLink.style.margin = '0px auto 28px auto';
-        }
+  // Highlight the current week link with dark green border
+  const currentLink = document.querySelector(`.course-duration-col-left a:nth-child(${weekNumber})`);
+  currentLink.classList.add('active');
+}
+
 
         function toggleSyllabus(element) {
             const expandSection = element.closest('.expand');
@@ -383,5 +381,7 @@
             }
         }
     </script>
+
+    <script src="script.js"></script>
 </body>
 </html>
