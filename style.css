@@ -139,24 +139,23 @@ nav .BackIcon {
 }
 
 /************************************ Header of LandingPage**************************************************/
-.header {
+.header{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  /* gap: 10px; */
   padding: 40px;
   box-shadow: 0px 3px 6px #00000029;
   font-family: var(--family-roboto);
 }
 .header-left {
   max-width: 50%;
-  margin-top: 30px;
-  margin-left: 10px;
 }
-
 .header-left h1 {
   font-size: 30px;
   color: #000000;
   font-weight: var(--weight-bold);
-  margin-bottom: 40px;
+  margin: 20px 0px;
 }
 
 .header-left p {
@@ -182,73 +181,53 @@ nav .BackIcon {
 
 .button-without-border {
   background-color: var(--dark-green);
+  border: 3px solid var(--dark-green);
   color: #fff;
   font-weight: bold;
-  border: none;
   border-radius: 15px;
-  padding: 17px 20px;
+  padding: 15px 20px;
 }
 
 .header-right {
-  display: flex;
-  position: relative;
-  margin-top: 40px;
   max-width: 50%;
-  margin-right: -90px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .header-right img {
-  width: 55%;
-  height: 65%;
-}
-.header-right img.absolute {
-  position: absolute;
-  top: 120px;
-  right: 140px;
+  width: 100%;
+  max-width: 400px; 
+  height: auto;
 }
 
 /* Media query for smaller screens */
 @media screen and (max-width: 800px) {
+  .header {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
   .header-left,
   .header-right {
-    max-width: 50%;
-  }
-
-  .header-left h1 {
-    font-size: 24px;
-    margin-bottom: 30px;
-  }
-
-  .header-left p {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-
-  .buttons button {
-    font-size: 12px;
-  }
-
-  .button-with-border {
-    padding: 10px 15px;
-  }
-
-  .button-without-border {
-    padding: 13px 15px;
+    max-width: 100%; 
+   
   }
 
   .header-right {
-    position: relative;
-    margin-top: 100px;
-  }
-  .header-right img {
-    width: 50%;
-    height: 40%;
+    margin-top: 20px; 
+    display: flex;
+    justify-content: center;
   }
 
-  .header-right img.absolute {
-    position: absolute;
-    right: 50px;
-    top: 100px;
+  .header-right img {
+    width: 80%; 
+  }
+
+  .buttons {
+   text-align: center; 
+  }
+  .buttons button {
+    margin-top: 10px;
   }
 }
 
@@ -404,7 +383,7 @@ nav .BackIcon {
 .topInstructor {
   width: 300px;
   text-align: left;
-  margin: 20px;
+  margin: 20px 0px;
   box-shadow: 0px 3px 6px #00000029;
   padding: 20px;
 }
@@ -460,9 +439,8 @@ nav .BackIcon {
 }
 
 .reviews {
-  width: calc(40% - 10px);
-  padding: 20px;
-  margin: 10px;
+  width: calc(45% - 10px);
+  margin: 10px 0px;
 }
 
 .reviews h3 {
@@ -560,7 +538,7 @@ nav .BackIcon {
   background-image: url("src/join-bg.png");
   background-size: cover;
   background-position: center;
-  height: 230px; /* Adjust the height as needed */
+  height: 230px; 
 }
 
 .bg-img img {
@@ -598,6 +576,7 @@ nav .BackIcon {
 /************************************Contact Us***********************************************/
 .contact-us {
   padding: 40px 50px;
+  box-shadow: 0px 3px 6px #00000029;
 }
 
 .contact-us h1 {
@@ -631,13 +610,13 @@ nav .BackIcon {
 }
 
 .send-message {
-  max-width: 40%;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 @media (max-width: 768px) {
   .contact {
-    max-width: 50%;
+    max-width: 100%;
     padding: 0 20px;
   }
 }
@@ -737,7 +716,7 @@ hr {
 .signUp-container {
   text-align: center;
   padding: 40px;
-  background-image: url("src/signup-component.png"); /* Add your image path here */
+  background-image: url("src/signup-component.png");
   background-size: cover;
   height: 100vh;
   background-position: center;
@@ -768,14 +747,15 @@ hr {
   border-radius: 15px;
 }
 .signup-btn {
-  margin: 20px auto;
-  width: 30%;
+  margin: 10px auto;
   border: 3px solid var(--dark-green);
   background-color: #fff;
   font-weight: bold;
   color: #000000;
   border-radius: 15px;
   padding: 15px 20px;
+  /* max-width: 100%; */
+  width: 30%;
 }
 
 .signup-form a {
@@ -785,13 +765,18 @@ hr {
   text-decoration: none;
 }
 
-.signup-form a b {
-  color: var(--dark-green);
-}
+
 
 @media (max-width: 768px) {
+  .signUp-container h1 {
+    font-size: 45px;
+    margin-top: 20px;
+  }
   .signup-form {
     padding: 0 20px;
+  }
+  .signup-form a {
+    font-size: 14px;
   }
 }
 
@@ -807,7 +792,7 @@ hr {
 .login-container h1 {
   font-size: 65px;
   margin-top: 30px;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   color: #000000;
   font-family: var(--segoe-script);
 }
@@ -816,7 +801,7 @@ hr {
   margin: 0 auto;
 }
 .login-btn {
-  margin: 100px auto 20px auto;
+  margin: 80px auto 20px auto;
   width: 30%;
   border: 3px solid var(--dark-green);
   background-color: #fff;
@@ -831,20 +816,28 @@ hr {
   color: #000000;
   text-decoration: none;
 }
-.login-form a b {
-  color: var(--dark-green);
-}
 
 @media (max-width: 768px) {
   .login-form {
     padding: 0 20px;
+  }
+  .login-container h1 {
+    font-size: 45px;
+    margin-top: 20px;
+  }
+  .login-form a {
+    font-size: 14px;
+  }
+  .login-btn {
+    margin: 20px auto;
   }
 }
 
 /************************************For Explore-Scholarship & Scholarship page***********************************************/
 .search-bar {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
   justify-content: center;
   margin: 50px auto;
   text-align: center;
@@ -898,9 +891,10 @@ hr {
   border: 1px solid #ccc;
   box-shadow: 0px 2px 6px #00000029;
   border-radius: 15px;
-  margin: 10px;
+  margin: 10px 25px;
   padding: 15px;
-  width: 90%;
+  /* width: 90%; */
+  max-width: 100%;
   text-align: left;
 }
 .scholarship-box h2,
@@ -921,7 +915,7 @@ h3,
   text-decoration: none;
   text-align: center;
   cursor: pointer;
-  display: block; /* Ensures button takes the full width */
+  display: block; /
 }
 
 .scholarship-list {
@@ -930,7 +924,7 @@ h3,
 }
 
 .scholarship-list li {
-  margin-bottom: 5px; /* Adds spacing between list items */
+  margin-bottom: 5px; 
 }
 
 .filter-container {
@@ -1018,13 +1012,18 @@ h3,
   .overlay {
     height: 680vh;
   }
+  .scholarship-box h2,
+p,
+h3, .scholarship-list, .apply-button{
+ font-size: 14px;
+}
 }
 
 /************************************ Application-form **************************************************/
 .application {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align application items at the top */
+  align-items: flex-start; 
   max-width: 1200px;
   padding: 30px;
   margin: 50px auto;
@@ -1099,7 +1098,7 @@ h3,
 }
 
 .application-checkbox {
-  width: 76%;
+  max-width: 100%;
   margin-top: 60px;
   
 }
@@ -1107,8 +1106,8 @@ h3,
   text-align: center;
 }
 .submit-btn {
-  padding: 15px;
-  width: 25%;
+  padding: 10px 35px;
+  max-width: 100%;
   border-radius: 10px;
   margin-top: 40px;
   font-weight: var(--weight-bold);
@@ -1130,21 +1129,18 @@ h3,
   width: 100%;
   height: 130vh;
   padding: 20px;
+  margin: 0 auto;
   background-color: var(--light-gray);
-  border-radius: 20px;
+  border-radius: 10px;
   overflow-y: auto;
 }
 
 .comments {
-  width: 90%;
-  margin: 20px auto;
+  width: 100%;
 }
 
 .comment {
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 15px;
+  padding: 15px 0px;
 }
 
 .comment-initial {
@@ -1192,19 +1188,14 @@ h3,
   cursor: pointer;
   margin-bottom: 10px;
   font-size: 13px;
+ 
 }
 
 .replies {
   display: none;
   margin-top: 10px;
-  padding-left: 50px; /* Adjust the left padding for better indentation */
-}
+  border: none;
 
-.reply {
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
 }
 
 .reply-author {
@@ -1335,7 +1326,8 @@ h3,
     display: none;
   }
   .comment-reply{
-      max-width: 20%;
+      max-width: 40%;
+      font-size: 12px;
   }
   .modal-application {
     width: 50%;
@@ -1419,9 +1411,6 @@ h3,
 
 /************************************Homepage**************************************************/
 /****** professional *******/
-#filterDropdown {
-  display: none;
-}
 .professional-certificate {
   overflow: hidden;
 margin: 0 auto;
@@ -1445,7 +1434,7 @@ margin-bottom: 40px
 
 .professional-container {
   flex: 0 0 calc((100% / 3) - 25px);
-  margin-right: 25px; /* Added margin to create space between cards */
+  margin-right: 25px;
   overflow: hidden;
 }
 
@@ -1462,7 +1451,7 @@ margin-bottom: 40px
   margin-top: -4px;
   border: 1px solid #ccc;
   border-radius: 0px 40px 0px 40px;
-  height: 65vh;
+  height: 55vh;
 }
 .certificate-info p{
   font-size: 15px;
@@ -1493,7 +1482,10 @@ margin-bottom: 40px
     margin-right: 5px;
  
 }
-
+.course-desc{
+  height: 20vh;
+  overflow: hidden;
+}
 .reviews-rating p {
   margin: 0;
   font-size: 12px;
@@ -1689,8 +1681,9 @@ right: 10px;
 
 .free-container {
   display: flex;
+  /* flex-wrap: wrap; */
   width: 100%;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .container-freeCoursesProjects {
@@ -1785,18 +1778,16 @@ right: 10px;
 @media only screen and (max-width: 768px) {
   .free-container {
    flex-direction: column;
-    width: 50%;
-    margin: 0 auto;
+    margin:0 auto;
   }
-   .sameContainer{
-    flex-direction: row;
-   }
+ 
   .container-freeCoursesProjects h3 {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .free-description {
     height: 15vh;
+    font-size: 12px;
   }
 
   .free-name h3 {
@@ -1813,227 +1804,177 @@ right: 10px;
 }
  
 @media only screen and (max-width: 688px) {
-  .free-container {
-    flex-direction: column;
-     width: 60%;
-     margin: 0 auto;
-   }
+ 
    .freeVerticalLine {
     display: none;
    }
 }
 
 /****** Degrees(Under-graduate & Post-graduate)*******/
-.Degree{
+.Degree {
   padding: 50px 0px;
   box-shadow: inset 0px 0px 10px #00000029;
 }
-.Degree h2{
+
+.Degree h2 {
   padding: 10px 100px;
-}
-.Completedegree {
-  overflow: hidden;
-margin: 0 auto;
-width: 85%; 
-margin-bottom: 40px
-}
-.Completedegree h1{
   font-size: 2rem;
-  margin-bottom: 20px;
-  margin-top: 50px;
-}
-.Completedegree h2{
-  margin-bottom: 15px;
 }
 
-.Under-graduate-slider {
-  display: flex;
-  justify-content: space-between;
-  transition: transform 0.5s ease-in-out;
-}
-
-.grade-container {
-  flex: 0 0 calc((100% / 3) - 25px); /* Adjusted flex basis to include space between cards */
-  margin-right: 25px; /* Added margin to create space between cards */
-  overflow: hidden;
-}
-.arrowIcon1 {
-  width: 20px;
-  cursor: pointer;
-  position: absolute;
-  margin: 30px;
-  top: 630%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: #333;
-  z-index: 1; /* Ensure arrows are above the reviews */
-  }
-  
-  .prevArrow1{
-  left: 10px;
-  }
-  
-  .nextArrow1{
-  right: 10px;
-  }
-
-  /****** Degrees(Post-graduate)*******/
-hr{
-  width: 85%;
+.Completedegree {
   margin: 0 auto;
+  width: 85%; 
+  margin-bottom: 40px;
 }
-.Post-graduate-slider {
+
+.Completedegree h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.Under-graduate,
+.Post-graduate {
   display: flex;
+  flex-wrap: wrap; 
   justify-content: space-between;
   transition: transform 0.5s ease-in-out;
-  /* margin-bottom: 20px; */
+}
+
+.degree-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+hr {
+  width: 85%;
+  margin: 40px auto;
 }
 
 .grade-container {
-  flex: 0 0 calc((100% / 3) - 25px); /* Adjusted flex basis to include space between cards */
-  margin-right: 25px; /* Added margin to create space between cards */
+  flex: 0 0 calc(33.333% - 25px); 
+  margin-bottom: 25px;
   overflow: hidden;
+ 
 }
-.arrowIcon2 {
-  width: 20px;
-  cursor: pointer;
-  position: absolute;
-  margin: 30px;
-  top: 720%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: #333;
-  z-index: 9; 
-  }
-  
-  .prevArrow2{
-  left: 10px;
-  }
-  
-  .nextArrow2{
-  right: 10px;
-  }
-.grade-info{
+
+.grade-info {
   padding: 15px;
   margin-top: -4px;
   border: 1px solid #ccc;
   border-radius: 0px 40px 0px 40px;
   height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-  .grade-name {
-    margin-bottom: 10px;
+
+.grade-name {
+  margin-bottom: 10px;
 }
 
 .grade-name h3 {
-    margin-left: -10px;
-    font-size: 18px;
-    color: #333;
+  margin-left: -10px;
+  font-size: 18px;
+  color: #333;
 }
 
 .grade-name h4 {
-    margin: 5px 0 0;
-    font-size: 14px;
-    color: #777;
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #777;
 }
 
 .grade-reviews-rating {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .grade-reviews-rating img {
-    width: 110px;
-    height: 25px;
-    margin-right: 5px;
+  width: 110px;
+  height: 25px;
+  margin-right: 5px;
 }
 
 .grade-reviews-rating p {
-    margin: 0;
-    font-size: 12px;
-    color: #777;
+  margin: 0;
+  font-size: 12px;
+  color: #777;
 }
 
 .grade-reviews-rating h4 {
-    margin: 0 0 0 10px;
-    font-size: 14px;
-    color: #333;
+  margin: 0 0 0 10px;
+  font-size: 14px;
+  color: #333;
 }
 
 .grade-description {
-    margin-bottom: 10px;
-    color: #555;
-    margin-top: -10px;
-    font-size: 15px;
-    height: 15vh;
-    overflow: hidden;
+  margin-bottom: 10px;
+  color: #555;
+  margin-top: -10px;
+  font-size: 15px;
+  height: 15vh;
+  overflow: hidden;
 }
-.overlayCourses{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 845vh;
-    background-color: rgba(190, 190, 190, 0.1);
-    backdrop-filter: blur(4px);
-    z-index: 5;
 
+.price-and-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-@media only screen and (max-width: 1080px){
-  .arrowIcon1 {
-    top: 860%;
-    }
 
-  .arrowIcon2 {
-    top: 920%;
-    }
+.price-and-button span {
+  font-size: 14px;
+  color: #333;
+}
+
+.price-and-button a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1080px) {
+  .Completedegree {
+    width: 90%; 
+  }
+  .grade-container {
+    flex: 0 0 calc(50% - 25px);
+  }
 }
 
 @media only screen and (max-width: 768px) {
- .Completedegree  {
-  width: 80%; 
-  margin-bottom: 20px;
+  .Completedegree {
+    width: 85%; 
   }
   .grade-container {
-    flex: 0 0 calc((100% / 2) - 25px );
+    flex: 0 0 calc(50% - 25px); 
     margin-right: 25px;
   }
   .grade-name h3 {
-    margin-left: -10px;
     font-size: 16px;
-    color: #333;
-}
-
-.grade-name h4 {
-    margin: 5px 0 0;
+  }
+  .grade-name h4 {
     font-size: 13px;
-    color: #777;
+  }
+  .grade-description {
+    font-size: 12px;
+  }
 }
-.grade-description{
-  font-size: 12px;
-}
-  .arrowIcon1 {
-    top: 1270%;
-    }
 
-  .arrowIcon2 {
-    top: 1350%;
-    }
-    .overlayCourses{
-      height: 1425vh;
-  }
-  
-}
 @media only screen and (max-width: 568px) {
-  .grade-container {
-    flex: 0 0 calc((100%) - 25px );
-    margin-right: 25px;
+  .Completedegree {
+    width: 80%; 
   }
-  .Completedegree  {
-  width: 65%; 
-  margin-bottom: 20px;
+  .grade-container {
+    flex: 0 0 100%; 
+    margin-right: 0;
+  }
+  .grade-description {
+    font-size: 12px;
   }
 }
+
 
 /************************************My Courses***********************************************/
 .my-courses{
@@ -2095,7 +2036,7 @@ hr{
 .course-btn button {
   margin-top: 15px;
   padding: 12px 20px;
-  width: 25%;
+  max-width: 100%;
   margin-right: 10px;
   border-radius: 5px;
   cursor: pointer;
@@ -2137,15 +2078,14 @@ hr{
   display: flex;
   flex-direction: column;
   gap: 20px; 
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding: 40px 20px;
   border: 1px solid #ccc;
 
 }
 
 .week-syllabus {
-    width: 90%;
-    margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
   background-color: #fff;
   border-radius: 30px;
   padding: 40px;
@@ -2205,7 +2145,7 @@ hr{
   display: inline-block;
   padding: 15px 20px;
   border-radius: 5px;
-  width: 13%;
+  max-width: 100%;
   text-align: center;
   cursor: pointer;
   background-color: var(--dark-green);
@@ -2226,7 +2166,7 @@ hr{
 }
 .view-more-review{
   vertical-align: middle;
-  width: 13%;
+  max-width: 100%;
 }
 
 .add-review{
@@ -2304,7 +2244,7 @@ filter: brightness(80%);
 
 .payment-btn button {
   margin-top: 20px;
-  width: 40%;
+  max-width: 100%;
 }
 
 .overlay-payment {
@@ -2344,6 +2284,7 @@ filter: brightness(80%);
 @media only screen and (max-width: 768px) {
   .selectedCourses-info {
     flex-direction: column;
+    
   }
 
   .selectedCourses-left {
@@ -2356,12 +2297,13 @@ filter: brightness(80%);
   }
 
   .course-btn button {
-    width: 35%;
+    max-width: 100%;
     font-size: 13px;
   }
 
   .view-syllabus-btn {
-    width: 20%;
+    max-width: 100%;
+    font-size: 14px;
   }
   .week-syllabus {
     width: 80%;
@@ -2369,7 +2311,6 @@ filter: brightness(80%);
 }
 
 .view-more-review{
-
   width:30%;
 }
 .modal-payment {
@@ -2421,7 +2362,11 @@ margin-bottom: 20px;
   font-weight: bold;
   font-size: 1.2rem;
 }
-
+.course-duration-col-middle{
+  max-width: 100%;
+  padding: 0px 20px;
+  margin: 0 auto;
+}
 .weeks-syllabus {
 border: 1px solid #ccc;
 border-radius: 20px;
@@ -2536,118 +2481,140 @@ margin-right: 10px;
 }
 
 /************************************ Course Material ***************************************************/
-.back{
+.container-material {
+  display: flex;
+  width: 100%;
+}
+
+.course-material-left {
+  display: none; 
+  width: 25%;
+  border-right: 1px solid #ccc;
+  transition: width 0.3s ease;
+  padding: 20px;
+}
+
+.course-material-right {
+  width: 100%;
+  /* background-color: #fff;  */
+  transition: width 0.3s ease;
+}
+
+.container-material.show-left .course-material-left {
+  display: block;
+}
+
+.container-material.show-left .course-material-right {
+  width: 75%;
+}
+
+
+
+#toggleButton {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#toggleButton:hover {
+  background-color: #0056b3;
+}
+
+.back {
   margin: 10px;
   display: flex;
- align-items: center;
+  align-items: center;
 }
-.back p{
- 
+
+.back p {
   font-size: 12px;
   color: #333;
- 
 }
-.back img{
-  
+
+.back img {
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
-.course-material {
-display: flex;
-justify-content: space-between;
-padding-left: 20px 0px 0px 20px;
-}
-
-.course-material-left {
-width: 25%;
-border-right: 1px solid #ccc;
-padding: 10px 20px;
-}
 
 .course-section {
   margin-top: 60px;
-margin-bottom: 50px;
-
+  margin-bottom: 50px;
 }
 
 .course-section h2 {
-font-size: 18px;
-margin-bottom: 10px;
-color: #333;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .course-section-info {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 8px;
-background-color: #c7c7c7;
-padding: 10px 30px;
-border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  background-color: #c7c7c7;
+  padding: 10px 30px;
+  border-radius: 20px;
 }
 
 .course-section-info img {
-width: 25px;
-height: 25px;
-margin-right: 10px;
-margin-left: -10px;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  margin-left: -10px;
 }
 
 .name-duration h4 {
-font-size: 13px;
-margin-left: 20px;
-color: #333;
+  font-size: 13px;
+  margin-left: 20px;
+  color: #333;
 }
 
 .name-duration p {
-font-size: 12px;
-color: #666;
-margin-top:-10px;
-margin-left: 13px;
+  font-size: 12px;
+  color: #666;
+  margin-top: -10px;
+  margin-left: 13px;
 }
 
-
 .course-section-info .check {
-margin-left: 30px;
-font-size: 20px;
-background-color: var(--dark-green);
-border-radius: 100%;
-padding: 0px 3px;
+  margin-left: 30px;
+  font-size: 20px;
+  background-color: var(--dark-green);
+  border-radius: 100%;
+  padding: 0px 3px;
 }
 
 .get-certificate-btn {
-text-align: center;
-margin-top: 60px;
+  text-align: center;
+  margin-top: 60px;
 }
 
 .get-certificate-btn h3 {
-margin-bottom: 10px;
-color: var(--dark-green);
+  margin-bottom: 10px;
+  color: var(--dark-green);
 }
 
 .get-certificate-btn button {
-padding: 10px 20px;
-border-radius: 10px;
-border: 3px solid var(--dark-green);
-background-color: white;
-cursor: pointer;
-}
-
-.course-material-right {
-  padding-top: 40px;
-width: 80%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 3px solid var(--dark-green);
+  background-color: white;
+  cursor: pointer;
 }
 
 .course-material-right h4 {
-font-size: 15px;
-color: var(--dark-green);
+  font-size: 15px;
+  color: var(--dark-green);
 }
-.course-material-right h4 span{
+
+.course-material-right h4 span {
   color: #333;
   font-weight: bold;
 }
-
 /******* video *******/
 .video-content {
 margin-bottom: 20px;
@@ -2655,89 +2622,90 @@ margin-bottom: 20px;
 }
 
 .pause{
-  display: none;
-  width: 50px;
-  height: auto;
+display: none;
+width: 50px;
+height: auto;
 }
 video{
-  width: 100%;
-  height: auto;
-  margin-top: 20px;
+width: 100%;
+height: auto;
+margin-top: 20px;
 }
 
 .controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: -10px;
-  padding: 10px;
-  background-color: var(--light-gray);
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: -10px;
+padding: 10px;
+background-color: var(--light-gray);
 }
 
 .left-controls,.center-controls ,
 .right-controls  {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 5px 10px;
-  outline: none;
-  
+background: none;
+border: none;
+color: white;
+cursor: pointer;
+padding: 5px 10px;
+outline: none;
+
 }
 .left-controls input, .center-controls img,
- .right-controls input{
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+.right-controls input{
+width: 30px;
+height: 30px;
+cursor: pointer;
 }
 
 /*********** About Video ********/
 .about-extra {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
+display: flex;
+flex-direction: column;
+gap: 20px;
+padding: 20px;
 }
 
 .button-course-material {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start;
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: flex-start;
 }
 
 .button-course-material a {
-  padding: 10px 20px;
-  border-radius: 15px;
-  text-decoration: none;
-  color: black;
-  background-color: transparent;
-  border: none;
-  background-color: var(--light-gray);
-  transition: background-color 0.3s ease;
+padding: 10px 20px;
+border-radius: 15px;
+text-decoration: none;
+color: black;
+background-color: transparent;
+border: none;
+background-color: var(--light-gray);
+transition: background-color 0.3s ease;
 }
 
 .button-course-material a.active {
-  background-color: var(--dark-green);
-  color: white;
+background-color: var(--dark-green);
+color: white;
 }
 
 .about-content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+display: flex;
+flex-direction: column;
+gap: 20px;
 }
 .detail-explanation h5{
-  margin-top: 10px;
+margin-top: 10px;
 margin-left: 10px;
 }
 /*********** instructor ********/
 .instructor-detail {
-  margin-top: 50px;
+margin: 50px 20px 20px 20px;
+max-width: 100%;
 padding: 20px;
 border: 1px solid #ccc;
-border-radius: 5px;
-/* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
+border-radius: 15px;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .instructor-basic {
@@ -2747,17 +2715,17 @@ justify-content: space-between;
 margin-bottom: 10px;
 }
 .intructor-info{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
- 
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+
 }
 .instructor-pic {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-right: 10px;
+width: 50px;
+height: 50px;
+object-fit: cover;
+border-radius: 50%;
+margin-right: 10px;
 }
 .instructor-rating  {
 width: 100px;
@@ -2783,92 +2751,68 @@ font-size: 14px;
 color: #333;
 }
 
-@media (max-width: 786px) {
-  /* .course-material {
-    padding-left: 10px;
-  } */
-
+@media (max-width: 768px) {
   .course-material-left {
-    width: 30%;
-    padding: 10px;
+      width: 100%;
+       background-color: #fff; 
+      position: absolute;
+      z-index: 1;
   }
 
-  .course-section {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  .container-material.show-left .course-material-left {
+      display: block;
+      position: absolute;
+      width: 90%;
   }
 
-  .course-section h2 {
-    font-size: 12px;
-    margin-bottom: 10px;
-    color: #333;
+  .container-material.show-left .course-material-right {
+      display: none; 
   }
-
-  .course-section-info {
-    padding: 5px 20px;
-    font-size: 10px;
-  }
-  .course-section-info img{
-    width: 18px;
-    height: auto;
-  }
-  .name-duration h4 {
-    font-size: 10px;
-    margin-left: 10px;
-  }
-
-  .name-duration p {
-    font-size: 10px;
-    margin-top: -10px;
-    margin-left: 0px;
-  }
-
-  .course-section-info .check {
-    font-size: 13px;
-
-  }
-
-  .get-certificate-btn {
-    margin-top: 20px;
-  }
-
-  .video-content {
-    margin-bottom: 10px;
-  }
-  .left-controls input, .center-controls img,
- .right-controls input{
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
 }
+@media screen and (max-width: 600px) {
+  .video-content {
+    margin-bottom: 15px;
+  }
+
+  video {
+    margin-top: 15px;
+  }
 
   .controls {
-    margin-top: -10px;
+    padding: 8px;
   }
 
-  .about-extra {
-    padding: 10px;
-    font-size: 12px;
+  .left-controls input, .center-controls img, .right-controls input {
+    width: 25px;
+    height: 25px;
   }
 
-  .instructor-detail {
-    margin-top: 20px;
-    padding: 10px;
+
+  .button-course-material a {
+    font-size: 13px;
   }
-  .instructor-rating{
-    width: 70px;
-    height: auto;
+  .detail-explanation h5 {
+    font-size: 13px;
   }
-  .instructor-basic h3, .instructor-basic p {
-    font-size: 12px;
+
+
+  .instructor-rating {
+    width: 80px;
+    height: 15px;
+    margin-right: 0;
+  }
+
+  .instructor-basic h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
   }
 
   .instructor-basic h4 {
     font-size: 12px;
   }
- 
+
   .detail-description {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
@@ -2882,7 +2826,7 @@ color: #333;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 50px;
+  padding: 10px;
 }
 
 .completion h1 {
@@ -2904,6 +2848,7 @@ color: #333;
   flex-direction: column;
 }
 .button{
+ 
 margin: 10px;
 cursor: pointer;
 }
@@ -2924,12 +2869,14 @@ cursor: pointer;
   }
   
   .completion-right {
-    width: 70%;
+    
+    width: 100%;
     margin: 0 auto;
    
   }
   .button{
     margin: 5px;
+    font-size: 12px;
     cursor: pointer;
     }
   .space-btn{

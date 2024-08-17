@@ -27,37 +27,46 @@
 
 
       <!------------------------------ Search & Filter Buttons--------------------------------------------->
-     <div class="search-bar">
+      
+      <div class="search-bar">
         <div class="search-icon">
           <img src="src/search.png" alt="">
           <input
             type="text"
             id="searchInput"
             placeholder="Search"
-            oninput="filterScholarships()"
+            oninput="filterCourses()"
           />
         </div>
-        <div class="filter-icon" >
-          <img src="src/filter.png" alt="" id="filterIcon">
+        <div class="filter-icon" onclick="openFilter()">
+          <img src="src/filter.png" alt="">
           <p>Filter</p>
-          <select id="filterDropdown" onchange="filterCoursesByFilterOption()">
-            <option value="" selected disabled>Filter by Rating</option>
+        </div>
+      </div>
+
+    <!------------------------------ Filter Section --------------------------------------------->
+    <div class="filter-container">
+        <button class="close-filter" onclick="closeFilter()">&times;</button>
+        <div class="filter-options">
+          <label for="filterOption">Filter</label>
+          <select id="filterOption" onchange="filterCoursesByFilterOption()">
             <option value="4.0">4.0+</option>
             <option value="4.5">4.5+</option>
             <option value="5.0">5.0</option>
           </select>
         </div>
       </div>
-
-   <script>
-        function openFilter() {
-    const filterDropdown = document.getElementById('filterDropdown');
-    filterDropdown.style.display = (filterDropdown.style.display === 'none' || filterDropdown.style.display === '') ? 'block' : 'none';
-  }
-  document.getElementById('filterIcon').addEventListener('click', openFilter);
-   </script>
-
-      
+    <script>
+          function openFilter() {
+        const filterContainer = document.querySelector(".filter-container");
+        filterContainer.style.display = "flex";
+      }
+      function closeFilter() {
+        const filterContainer = document.querySelector(".filter-container");
+        filterContainer.style.display = "none";
+      }
+    </script>
+   
       
        <!------------------------------ Professional Certificate ------------------------------------>
 <section class="professional-certificate" id="professional-certificate-section">
@@ -172,7 +181,7 @@
                     <p>(${course.reviews} reviews)</p>
                 </div>
 
-                <p>${course.description}</p>
+                <p class="course-desc">${course.description}</p>
                 
                 <div class="price-and-button">
                     <span>PRICE: ${course.price}</span>
@@ -509,16 +518,18 @@
     <h2>Degree</h2>
     <div class="Completedegree" id="Completedegree-section">
         <h3>Under-graduate degrees</h3>
-        <div class="Under-graduate-slider" id="UndergraduateSlider"></div>
-        <div class="arrowIcon1 prevArrow1">&#9665;</div>
-        <div class="arrowIcon1 nextArrow1">&#9655;</div>
+        <div class="Under-graduate" id="Undergraduate"></div>
+        <div class="degree-btn">
+            <button class="button-with-border">View All</button>
+        </div>
     </div>
      <hr>
     <div class="Completedegree">
         <h3>Post-graduate degrees</h3>
-        <div class="Post-graduate-slider" id="PostgraduateSlider"></div>
-        <div class="arrowIcon2 prevArrow2">&#9665;</div>
-        <div class="arrowIcon2 nextArrow2">&#9655;</div>
+        <div class="Post-graduate" id="Postgraduate"></div>
+        <div class="degree-btn">
+            <button class="button-with-border">View All</button>
+        </div>
     </div>
 </section>
 
@@ -557,25 +568,14 @@
             enrollLink: '#',
             starImage: 'src/star5.png' 
         },
-        {
-            image: 'src/uni4.jpg',
-            Uniname: 'NovaTech University',
-            name: 'Bachelor of Science in Biomedical Engineering',
-            rating: "5.0",
-            reviews: 6745,
-            description: 'Explore the intersection of engineering and healthcare. Students gain expertise in designing medical devices, developing healthcare technologies, and applying engineering principles to complex medical challenges. Graduates are poised for careers in the medical device industry, healthcare research, and biomedical engineering.',
-            price: '23$',
-            enrollLink: '#',
-            starImage: 'src/star5.png' 
-        },
+     
     ];
 
-    const UndergraduateSlider = document.getElementById('UndergraduateSlider');
-    let currentUnderGraduateSlides = 0;
+    
 
     UndergradeData.forEach(undergradeCourse => {
         const card = createCourseCard(undergradeCourse);
-        UndergraduateSlider.appendChild(card);
+        Undergraduate.appendChild(card);
     });
 
     function createCourseCard(undergradeCourse) {
@@ -610,40 +610,6 @@
 
         return card;
     }
-
-    function initializeSlider() {
-    const sliderUndergraduate = document.getElementById('UndergraduateSlider');
-    const cardsUndergraduate = document.querySelectorAll('.grade-container');
-    const cardCount = cardsUndergraduate.length;
-
-    let cardWidth = cardsUndergraduate[0].offsetWidth + 25; /* Adjusted card width to include margin */
-
-    // Appending additional cards for infinite loop
-    for (let i = 0; i < cardCount; i++) {
-        const clone = cardsUndergraduate[i].cloneNode(true);
-        sliderUndergraduate.appendChild(clone);
-    }
-
-    function navigateUndergraduateSlider(directionUndergrade) {
-        currentUnderGraduateSlides += directionUndergrade;
-        const maxUndergraduateSlide = cardCount * 2 - 3; 
-        if (currentUnderGraduateSlides < 0) {
-            currentUnderGraduateSlides = maxUndergraduateSlide;
-        } else if (currentUnderGraduateSlides > maxUndergraduateSlide) {
-            currentUnderGraduateSlides = 0;
-        }
-
-        const newPositionUndergrade = -currentUnderGraduateSlides * cardWidth;
-        sliderUndergraduate.style.transition = 'transform 0.5s ease-in-out';
-        sliderUndergraduate.style.transform = `translateX(${newPositionUndergrade}px)`;
-    }
-
-    document.querySelector('.prevArrow1').addEventListener('click', () => navigateUndergraduateSlider(-1));
-    document.querySelector('.nextArrow1').addEventListener('click', () =>  navigateUndergraduateSlider(1));
-}
-
-initializeSlider();
-
 
 
 
@@ -682,65 +648,15 @@ const PostgradeData = [
             enrollLink: '#',
             starImage: 'src/star5.png' 
         },
-        {
-            image: 'src/uni8.jpg',
-            Uniname: 'Capital City Law School',
-            name: 'Juris Doctor (JD) with a Specialization in Environmental Law',
-            rating: "5.0",
-            reviews: 6745,
-            description: 'This JD program provides a strong foundation in environmental law, equipping students with the legal expertise to address pressing environmental issues and advocate for sustainable practices.',
-            price: '23$',
-            enrollLink: '#',
-            starImage: 'src/star5.png' 
-        },
+       
 ];
-
-
-    const PostgraduateSlider = document.getElementById('PostgraduateSlider');
-    let currentPostGraduateSlides = 0;
 
     PostgradeData.forEach(postgradeCourse => {
         const card = createCourseCard(postgradeCourse);
-        PostgraduateSlider.appendChild(card);
+        Postgraduate.appendChild(card);
     });
 
-    
-    function initializePostgraduateSlider() {
-    const sliderPostgraduate = document.getElementById('PostgraduateSlider');
-    const cardsPostgraduate = document.querySelectorAll('.grade-container');
-    const cardCount = cardsPostgraduate.length;
 
-    let cardWidth = cardsPostgraduate[0].offsetWidth + 25; /* Adjusted card width to include margin */
-
-    // Appending additional cards for infinite loop
-    for (let i = 0; i < cardCount; i++) {
-        const clone = cardsPostgraduate[i].cloneNode(true);
-        sliderPostgraduate.appendChild(clone);
-    }
-
-    function navigatePostgraduateSlider(directionPostgrade) {
-        currentPostGraduateSlides += directionPostgrade;
-        const maxPostgraduateSlide = cardCount * 2 - 3;
-
-        if (currentPostGraduateSlides < 0) {
-            currentPostGraduateSlides = maxPostgraduateSlide;
-        } else if (currentPostGraduateSlides > maxPostgraduateSlide) {
-            currentPostGraduateSlides = 0;
-        }
-
-        const newPositionPostgrade = -currentPostGraduateSlides * cardWidth;
-        sliderPostgraduate.style.transition = 'transform 0.5s ease-in-out';
-        sliderPostgraduate.style.transform = `translateX(${newPositionPostgrade}px)`;
-    }
-
-    // Corrected class names in event listeners
-// Corrected class names in event listeners
-document.querySelector('.prevArrow2').addEventListener('click', () => navigatePostgraduateSlider(-1));
-document.querySelector('.nextArrow2').addEventListener('click', () => navigatePostgraduateSlider(1));
-
-}
-
-initializePostgraduateSlider();
 
 
 </script>

@@ -4,34 +4,313 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Material</title>
-     <link rel="stylesheet" href="style.css">
+     <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+          .container {
+            display: flex;
+            width: 100%;
+            height: 100vh; /* Full screen height */
+        }
+
+        .course-material-left {
+            display: none; /* Initially hidden */
+            width: 25%;
+            background-color: #f0f0f0; /* Adjust color as needed */
+            transition: width 0.3s ease;
+            padding: 20px;
+            /* overflow-y: auto; */
+        }
+
+        .course-material-right {
+            width: 100%;
+            background-color: #fff; /* Adjust color as needed */
+            transition: width 0.3s ease;
+            padding: 20px;
+            /* overflow-y: auto; */
+        }
+
+        /* Styles for when the left section is visible */
+        .container.show-left .course-material-left {
+            display: block;
+        }
+
+        .container.show-left .course-material-right {
+            width: 75%;
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .course-material-left {
+                width: 100%;
+                position: absolute;
+                height: 100vh; /* Ensure it takes the full height */
+                z-index: 1;
+            }
+
+            .container.show-left .course-material-left {
+                display: block;
+                position: absolute;
+                width: 75%;
+            }
+
+            .container.show-left .course-material-right {
+                display: none; /* Hide the right content when left is shown on small screens */
+            }
+        }
+
+        #toggleButton {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #toggleButton:hover {
+            background-color: #0056b3;
+        }
+
+        /* Additional styling from your provided code */
+        .back {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .back p {
+            font-size: 12px;
+            color: #333;
+        }
+
+        .back img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .course-section {
+            margin-top: 60px;
+            margin-bottom: 50px;
+        }
+
+        .course-section h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .course-section-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            background-color: #c7c7c7;
+            padding: 10px 30px;
+            border-radius: 20px;
+        }
+
+        .course-section-info img {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            margin-left: -10px;
+        }
+
+        .name-duration h4 {
+            font-size: 13px;
+            margin-left: 20px;
+            color: #333;
+        }
+
+        .name-duration p {
+            font-size: 12px;
+            color: #666;
+            margin-top: -10px;
+            margin-left: 13px;
+        }
+
+        .course-section-info .check {
+            margin-left: 30px;
+            font-size: 20px;
+            background-color: var(--dark-green);
+            border-radius: 100%;
+            padding: 0px 3px;
+        }
+
+        .get-certificate-btn {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .get-certificate-btn h3 {
+            margin-bottom: 10px;
+            color: var(--dark-green);
+        }
+
+        .get-certificate-btn button {
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 3px solid var(--dark-green);
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .course-material-right h4 {
+            font-size: 15px;
+            color: var(--dark-green);
+        }
+
+        .course-material-right h4 span {
+            color: #333;
+            font-weight: bold;
+        }
+        /******* video *******/
+.video-content {
+margin-bottom: 20px;
+
+}
+
+.pause{
+  display: none;
+  width: 50px;
+  height: auto;
+}
+video{
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -10px;
+  padding: 10px;
+  background-color: var(--light-gray);
+}
+
+.left-controls,.center-controls ,
+.right-controls  {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  outline: none;
+  
+}
+.left-controls input, .center-controls img,
+ .right-controls input{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/*********** About Video ********/
+.about-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.button-course-material {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.button-course-material a {
+  padding: 10px 20px;
+  border-radius: 15px;
+  text-decoration: none;
+  color: black;
+  background-color: transparent;
+  border: none;
+  background-color: var(--light-gray);
+  transition: background-color 0.3s ease;
+}
+
+.button-course-material a.active {
+  background-color: var(--dark-green);
+  color: white;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.detail-explanation h5{
+  margin-top: 10px;
+margin-left: 10px;
+}
+/*********** instructor ********/
+.instructor-detail {
+  margin-top: 50px;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 5px;
+/* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
+}
+
+.instructor-basic {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 10px;
+}
+.intructor-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+ 
+}
+.instructor-pic {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.instructor-rating  {
+width: 100px;
+height: 20px;
+margin-right: 10px;
+}
+
+.instructor-basic h3 {
+font-size: 16px;
+margin: 0;
+color: #333;
+}
+
+
+.instructor-basic h4 {
+font-size: 14px;
+margin: 0;
+color: #333;
+}
+
+.detail-description {
+font-size: 14px;
+color: #333;
+}
+     </style>
 </head>
 <body>
    
-<!------------------------------ navigation ------------------------------------>
-<nav>
-    <div class="nav-left" onclick="GoToHomePage()">
-      <img src="src/logo.png" alt="Logo" class="logo" /> </div>
-    <div class="nav-right" id="navLinks">
-      <img src="src/arrow-back.png" alt="back" class="BackIcon" onclick="hideMenu()"/>
-      <a href="homepage.html" class="nav-link">Home</a>
-      <a href="my-profile.html" class="nav-link">My Profile</a>
-      <a href="my-courses.html" class="nav-link">My Courses</a>
-      <a href="scholarship.html" class="nav-link">Scholarships</a>
-      
-      <a href="#" class="nav-link link-space">Setting</a>
-      <a href="login.html" class="nav-link ">Logout</a>
-    </div>
-    <img src="src/menu icon.png" alt="hamburger menu" class="icon" onclick="showMenu()"/>
-  </nav>
 
-    <div class="container-material">
+
+    <div class="container">
         <!----------------------- Course Material - Left ------------------------------>
         <div class="course-material-left">
          
             <div class="back">
-                <img src="src/hide.png" alt="" onclick="toggleCourseMaterial()" >
-                <p>Hide Menu</p>
+                <img src="src/back.png" alt="" onclick="toggleCourseMaterial()" >
+                <p>hide</p>
             </div>
               
           <div class="course-section">
@@ -149,7 +428,7 @@
         <div class="course-material-right">
             <div class="back">
                 <img src="src/back.png" alt="" onclick="toggleCourseMaterial()">
-                <p>Show Menu</p>
+                <p>hide</p>
             </div>
            <h4> Fundamentals of Digital Marketing <span>></span> Week 1: Introduction to Digital Marketing  <span>></span>  <span>Landscape Overview, Real-world Examples</span></h4>
 
@@ -270,78 +549,6 @@
         </div>
     </div>
 
-      <!------------------------------ Footer --------------------------------------->
-      <footer class="footer">
-        <div class="footer-content">
-          <div class="footer-logo">
-            <img src="src/logo.png" alt="Your Company Logo">
-            <p>Virtual Scholar is a global online learning platform that offers anyone,
-               anywhere access to online courses</p>
-          </div>
-          <div class="footer-links">
-            <ul>
-              <li><a href="#"><b>Virtual scholar</b></a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Teach on</a></li>
-              <li><a href="#">Roadmap</a></li>
-              <li><a href="#">Career</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Our Team</a></li>
-              
-            </ul>
-          
-            <ul>
-              <li><a href="#"><b>Community</b></a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">Developer</a></li>
-              <li><a href="#">Testimonial</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Affiliate</a></li>
-              <li><a href="#">Our Scholarship</a></li>
-            </ul>
-          
-        
-            <ul>
-              <li><a href="#"><b>More</b></a></li>
-              <li><a href="#">FQA's</a></li>
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Terms</a></li>
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">Code of Conduct</a></li>
-            </ul>
-      </div>
-    </div>
-  
-          <hr>
-          <div class="footer-info">
-            <div class="social-media">
-              <a>
-                <img src="src/instagram.png" alt="">
-              </a>
-  
-          
-              <a>
-                <img src="src/facebook.png" alt="">
-              </a>
-  
-  
-              <a>
-                <img src="src/twitter.png" alt="">
-              </a>
-  
-              
-              <a>
-                <img src="src/linkedIn.png" alt="">
-              </a>
-  
-              <a>
-                <img src="src/youtube.png" alt="">
-              </a>
-            </div>
-            <p><b>©</b>2023 VirtualScholor, Inc. All rights reserved</p>
-          </div>
-        
-      </footer>
 
    
 
@@ -452,7 +659,7 @@
 
 <script>
     function toggleCourseMaterial() {
-        const container = document.querySelector('.container-material');
+        const container = document.querySelector('.container');
         container.classList.toggle('show-left');
     }
 
@@ -464,9 +671,5 @@
 </script>
 
 <script src="script.js"></script>
-
-
-
-
 </body>
 </html>
